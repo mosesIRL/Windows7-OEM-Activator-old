@@ -13,6 +13,7 @@ The digital certificates included are property of their respective owners.
 
 ##Supported Manufacturers:
 - Acer
+- Alienware
 - Asus
 - Dell
 - Fujitsu
