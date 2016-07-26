@@ -44,29 +44,36 @@ cls
 echo.
 echo Select manufacturer:
 echo 1) Acer
-echo 2) Asus
-echo 3) Dell
-echo 4) Fujitsu
-echo 5) HP
-echo 6) IBM/Lenovo
-echo 7) Sony
-echo 8) Toshiba
-echo 9) Cancel
+echo 2) Alienware
+echo 3) Asus
+echo 4) Dell
+echo 5) Fujitsu
+echo 6) HP
+echo 7) IBM/Lenovo
+echo 8) Sony
+echo 9) Toshiba
+echo 10) Cancel
 echo.
 set /P MANU="Enter selection: "
 if /i "%MANU:~,1%" EQU "1" goto Acer
-if /i "%MANU:~,1%" EQU "2" goto Asus
-if /i "%MANU:~,1%" EQU "3" goto Dell
-if /i "%MANU:~,1%" EQU "4" goto Fujitsu
-if /i "%MANU:~,1%" EQU "5" goto HP
-if /i "%MANU:~,1%" EQU "6" goto Lenovo
-if /i "%MANU:~,1%" EQU "7" goto Sony
-if /i "%MANU:~,1%" EQU "8" goto Toshiba
-if /i "%MANU:~,1%" EQU "9" goto InstallOrNot
+if /i "%MANU:~,1%" EQU "2" goto Alienware
+if /i "%MANU:~,1%" EQU "3" goto Asus
+if /i "%MANU:~,1%" EQU "4" goto Dell
+if /i "%MANU:~,1%" EQU "5" goto Fujitsu
+if /i "%MANU:~,1%" EQU "6" goto HP
+if /i "%MANU:~,1%" EQU "7" goto Lenovo
+if /i "%MANU:~,1%" EQU "8" goto Sony
+if /i "%MANU:~,1%" EQU "9" goto Toshiba
+if /i "%MANU:~,1%" EQU "10" goto InstallOrNot
 goto INSTALLOEM
 :Acer
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\ACER-NEW.xrm-ms
 cscript //B "%windir%\system32\slmgr.vbs" -ipk YKHFT-KW986-GK4PY-FDWYH-7TP9F
+cscript //B "%windir%\system32\slmgr.vbs" -ato
+del C:\Certs /Q
+:Alienware
+cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\ALIENWARE.xrm-ms
+cscript //B "%windir%\system32\slmgr.vbs" -ipk 4CFBX-7HQ6R-3JYWF-72GXP-4MV6W
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 del C:\Certs /Q
 goto END
