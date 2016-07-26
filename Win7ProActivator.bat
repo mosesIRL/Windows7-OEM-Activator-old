@@ -66,25 +66,25 @@ if /i "%MANU:~,1%" EQU "9" goto InstallOrNot
 goto INSTALLOEM
 :Acer
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\ACER-NEW.xrm-ms
-cscript //B "%windir%\system32\slmgr.vbs" -ipk YKHFT­KW986­GK4PY­FDWYH­7TP9F
+cscript //B "%windir%\system32\slmgr.vbs" -ipk YKHFT-KW986-GK4PY-FDWYH-7TP9F
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 del C:\Certs /Q
 goto END
 :Asus
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\ASUS-NEW.xrm-ms
-cscript //B "%windir%\system32\slmgr.vbs" -ipk 2WCJK­R8B4Y­CWRF2­TRJKB­PV9HW
+cscript //B "%windir%\system32\slmgr.vbs" -ipk 2WCJK-R8B4Y-CWRF2-TRJKB-PV9HW
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 del C:\Certs /Q
 goto END
 :Dell
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\DELL.xrm-ms
-cscript //B "%windir%\system32\slmgr.vbs" -ipk 32KD2­K9CTF­M3DJT­4J3WC­733WD
+cscript //B "%windir%\system32\slmgr.vbs" -ipk 32KD2-K9CTF-M3DJT-4J3WC-733WD
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 del C:\Certs /Q
 goto END
 :Fujitsu
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\FUJITSU.xrm-ms
-cscript //B "%windir%\system32\slmgr.vbs" -ipk PT9YK­BC2J9­WWYF9­R9DCR­QB9CK
+cscript //B "%windir%\system32\slmgr.vbs" -ipk PT9YK-BC2J9-WWYF9-R9DCR-QB9CK
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 del C:\Certs /Q
 goto END
@@ -96,19 +96,19 @@ del C:\Certs /Q
 goto END
 :Lenovo
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\IBM-LENOVO.xrm-ms
-cscript //B "%windir%\system32\slmgr.vbs" -ipk 237XB­GDJ7B­MV8MH­98QJM­24367
+cscript //B "%windir%\system32\slmgr.vbs" -ipk 237XB-GDJ7B-MV8MH-98QJM-24367
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 del C:\Certs /Q
 goto END
 :Sony
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\SONY-NEW.xrm-ms
-cscript //B "%windir%\system32\slmgr.vbs" -ipk H9M26­6BXJP­XXFCY­7BR4V­24X8J
+cscript //B "%windir%\system32\slmgr.vbs" -ipk H9M26-6BXJP-XXFCY-7BR4V-24X8J
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 del C:\Certs /Q
 goto END
 :Toshiba
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\TOSHIBA.xrm-ms
-cscript //B "%windir%\system32\slmgr.vbs" -ipk 2V8P2­QKJWM­4THM3­74PDB­4P2KH
+cscript //B "%windir%\system32\slmgr.vbs" -ipk 2V8P2-QKJWM-4THM3-74PDB-4P2KH
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 del C:\Certs /Q
 goto END
