@@ -50,9 +50,10 @@ echo 4) Dell
 echo 5) Fujitsu
 echo 6) HP
 echo 7) IBM/Lenovo
-echo 8) Sony
-echo 9) Toshiba
-echo 10) Cancel
+echo 8) Samsung
+echo 9) Sony
+echo 10) Toshiba
+echo 11) Cancel
 echo.
 set /P MANU="Enter selection: "
 if /i "%MANU:~,1%" EQU "1" goto Acer
@@ -62,9 +63,10 @@ if /i "%MANU:~,1%" EQU "4" goto Dell
 if /i "%MANU:~,1%" EQU "5" goto Fujitsu
 if /i "%MANU:~,1%" EQU "6" goto HP
 if /i "%MANU:~,1%" EQU "7" goto Lenovo
-if /i "%MANU:~,1%" EQU "8" goto Sony
-if /i "%MANU:~,1%" EQU "9" goto Toshiba
-if /i "%MANU:~,1%" EQU "10" goto InstallOrNot
+if /i "%MANU:~,1%" EQU "8" goto Samsung
+if /i "%MANU:~,1%" EQU "9" goto Sony
+if /i "%MANU:~,1%" EQU "10" goto Toshiba
+if /i "%MANU:~,1%" EQU "11" goto InstallOrNot
 goto INSTALLOEM
 :Acer
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\ACER-NEW.xrm-ms
@@ -104,6 +106,12 @@ goto END
 :Lenovo
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\IBM-LENOVO.xrm-ms
 cscript //B "%windir%\system32\slmgr.vbs" -ipk 237XB-GDJ7B-MV8MH-98QJM-24367
+cscript //B "%windir%\system32\slmgr.vbs" -ato
+del C:\Certs /Q
+goto END
+:Samsung
+cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\SAMSUNG.xrm-ms
+cscript //B "%windir%\system32\slmgr.vbs" -ipk GMJQF-JC7VC-76HMH-M4RKY-V4HX6
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 del C:\Certs /Q
 goto END
