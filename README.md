@@ -22,4 +22,3 @@ The digital certificates included are property of their respective owners.
 - Samsung
 - Sony
 - Toshiba
-- (More being added eventually)
