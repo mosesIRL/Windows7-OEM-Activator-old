@@ -130,7 +130,5 @@ echo.
 echo.
 echo Press any key to exit...
 pause > nul
-net start FOGService > nul
-rmdir /s /q C:\Certs > nul
 cls
 exit /b
