@@ -19,6 +19,7 @@ The digital certificates included are property of their respective owners.
 - Fujitsu
 - HP
 - Lenovo
+- Samsung
 - Sony
 - Toshiba
 - (More being added eventually)
