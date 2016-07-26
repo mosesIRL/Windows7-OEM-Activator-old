@@ -1,8 +1,10 @@
 # Windows-7-Pro-Activator
-Batch script for activating Windows 7 Pro using an OEM certificate. For computers that come with a Windows 8/10 sticker but have downgrade rights to Windows 7 Pro. This allows you activate it after doing a clean install.
+This is a batch script for activating Windows 7 Pro using an OEM certificate. For computers that come with a Windows 8/10 sticker but have downgrade rights to Windows 7 Pro. This allows you activate it after doing a clean install.
+
+You can also use it to install a retail or volume license key.
 
 ##Read This Notice:##
-The use of this script assumes you have a device with valid installation or downgrade rights to Windows 7 Professional, or a validWindows 7 product key. The use of this script in any other manner may be a violation of the Microsoft End User License Agreement or specific manufacturer agreements. The author assumes no responsibility for any misuse or any liability for any damages that may result from the use of this script.
+The use of this script assumes you have a device with valid installation or downgrade rights to Windows 7 Professional, or a valid Windows 7 retail or volume product key. The use of this script in any other manner may be a violation of the Microsoft End User License Agreement or specific manufacturer agreements. The author assumes no responsibility for any misuse or any liability for any damages that may result from the use of this script.
 
 The digital certificates included are property of their respective owners.
 
