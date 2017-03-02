@@ -21,7 +21,7 @@ The digital certificates included are property of their respective owners. They 
 
 ##Usage:
 
-1. Download the ZIP
+1. Download the ZIP and extract everything to a folder.
 2. Run Win7ProActivator.bat
 3. Allow UAC when prompted.
 4. Follow the prompts.
