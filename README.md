@@ -7,8 +7,8 @@ You can also use it to install a retail or volume license key.
 
 The following features are being developed for the script:
 
-- Multiple edition support (Home Premium, Basic and Ultimate)
-- Autodetect failed activation and alternative certificate attempt
+- Multiple edition support (Home Premium, Basic and Ultimate) ✔
+- Autodetect failed activation and alternative certificate attempt ✔
 - Autodetect manufacturer (if possible)
 - Eventually will be ported over to Powershell or VB.
 
