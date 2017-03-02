@@ -9,6 +9,7 @@ The following features are being developed for the script:
 
 - Multiple edition support (Home Premium, Basic and Ultimate)
 - Autodetect failed activation and alternative certificate attempt
+- Autodetect manufacturer (if possible)
 - Eventually will be ported over to Powershell or VB.
 
 Please suggest any features you'd like to see.
