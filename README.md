@@ -23,12 +23,14 @@ The digital certificates included are property of their respective owners. They 
 
 1. Copy the "Certs" folder to the root of your C:\ drive.
 2. Right click the batch file and run as administrator.
+
 ##Supported Windows 7 Editions:
 - Starter
 - Home Basic
 - Home Premium
 - Professional
 - Ultimate
+
 ##Supported Manufacturers:
 - Acer/Gateway/Packard
 - Alienware
