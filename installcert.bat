@@ -21,4 +21,4 @@ echo License activation failed. Attempting alternative certificate and product k
 cscript //B "%windir%\system32\slmgr.vbs" -ilc "C:\Certs\%MANU%\OEM\%EDITION% B\OEM\OEM.xrm-ms"
 cscript //B "%windir%\system32\slmgr.vbs" -ipk YKHFT-KW986-GK4PY-FDWYH-7TP9F
 cscript //B "%windir%\system32\slmgr.vbs" -ato
-call checkstatus.bat %
+call "%cd%\checkstatus.bat" %OEMCHECK%
