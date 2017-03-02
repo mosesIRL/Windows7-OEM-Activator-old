@@ -32,7 +32,7 @@ REM Detect current edition
 FOR /F "usebackq skip=2 tokens=1-5" %%A IN (`reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v "ProductName" 2^>nul`) DO (
     set ValueName=%%A
     set ValueType=%%B
-    set Edition=%%E
+    set EDITION=%%E
 )
 echo.
 echo.
@@ -52,12 +52,12 @@ if /i "%LICENSETYPE:~,1%" EQU "1" goto installoem
 if /i "%LICENSETYPE:~,1%" EQU "2" goto installretail
 if /i "%LICENSETYPE:~,1%" EQU "3" goto cancel
 goto INSTALLOEM
-REM Select Manufacturer
+REM Select MANUFACTURERfacturer
 :INSTALLOEM
 cls
 @echo off
 echo.
-echo Select manufacturer:
+echo Select MANUFACTURERfacturer:
 echo 1) Acer
 echo 2) Alienware
 echo 3) Asus
@@ -70,19 +70,35 @@ echo 9) Sony
 echo 10) Toshiba
 echo 11) Cancel
 echo.
-set /P MANU="Enter selection: "
-if /i "%MANU:~,1%" EQU "1" goto Acer
-if /i "%MANU:~,1%" EQU "2" goto Alienware
-if /i "%MANU:~,1%" EQU "3" goto Asus
-if /i "%MANU:~,1%" EQU "4" goto Dell
-if /i "%MANU:~,1%" EQU "5" goto Fujitsu
-if /i "%MANU:~,1%" EQU "6" goto HP
-if /i "%MANU:~,1%" EQU "7" goto Lenovo
-if /i "%MANU:~,1%" EQU "8" goto Samsung
-if /i "%MANU:~,1%" EQU "9" goto Sony
-if /i "%MANU:~,1%" EQU "10" goto Toshiba
-if /i "%MANU:~,1%" EQU "11" goto InstallOrNot
-goto INSTALLOEM
+set /P MANUFACTURER="Enter selection: "
+if /i "%EDITION:~,1%" EQU "Professional" goto MANUPRO
+if /i "%EDITION:~,1%" EQU "Home Basic" goto MANUHOMEBASIC
+if /i "%EDITION:~,1%" EQU "Home Premium" goto MANUHOMEPREM
+if /i "%EDITION:~,1%" EQU "Ultimate" goto MANUULTIMATE
+:MANUPRO
+if /i "%MANUFACTURER:~,1%" EQU "1" goto Acer
+if /i "%MANUFACTURER:~,1%" EQU "2" goto Alienware
+if /i "%MANUFACTURER:~,1%" EQU "3" goto Asus
+if /i "%MANUFACTURER:~,1%" EQU "4" goto Dell
+if /i "%MANUFACTURER:~,1%" EQU "5" goto Fujitsu
+if /i "%MANUFACTURER:~,1%" EQU "6" goto HP
+if /i "%MANUFACTURER:~,1%" EQU "7" goto Lenovo
+if /i "%MANUFACTURER:~,1%" EQU "8" goto Samsung
+if /i "%MANUFACTURER:~,1%" EQU "9" goto Sony
+if /i "%MANUFACTURER:~,1%" EQU "10" goto Toshiba
+if /i "%MANUFACTURER:~,1%" EQU "11" goto InstallOrNot
+:MANUHOMEBASIC
+echo Support coming soon for Windows 7 %EDITION%
+pause
+exit
+:MANUHOMEPREM
+echo Support coming soon for Windows 7 %EDITION%
+pause
+exit
+:MANUULTIMATE
+echo Support coming soon for Windows 7 %EDITION%
+pause
+exit
 :Acer
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\ACER-NEW.xrm-ms
 cscript //B "%windir%\system32\slmgr.vbs" -ipk YKHFT-KW986-GK4PY-FDWYH-7TP9F
@@ -156,6 +172,7 @@ echo.
 echo.
 echo License installed!
 echo.
+REM Detect success?
 echo Check Windows System Properties page to verify license is activated.
 echo.
 echo.
