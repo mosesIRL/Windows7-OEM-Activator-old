@@ -25,13 +25,13 @@ The digital certificates included are property of their respective owners. They 
 2. Right click the batch file and run as administrator.
 
 ##Supported Manufacturers:
-- Acer
+- Acer/Gateway/Packard
 - Alienware
 - Asus
 - Dell
 - Fujitsu
-- HP
-- Lenovo
+- HP/Compaq
+- Lenovo/IBM
 - Samsung
 - Sony
 - Toshiba
