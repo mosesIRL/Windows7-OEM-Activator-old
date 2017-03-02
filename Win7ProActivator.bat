@@ -19,11 +19,11 @@ echo.
 echo.
 echo   The use of this script assumes you have a device with valid 
 echo   installation or downgrade rights to Windows 7 Professional, 
-echo   or a valid Windows 7 product key. The use of this script in any 
-echo   other manner may be a violation of the Microsoft End User License 
-echo   Agreement or specific manufacturer agreements. The author assumes 
-echo   no responsibility for any misuse or any liability for any damages 
-echo   that may result from the use of this script.
+echo   or a valid Windows 7 product key. The use of this script  may be 
+echo   a violation of the Microsoft End User License Agreement or specific 
+echo   manufacturer agreements. The author assumes no responsibility for 
+echo   any misuse or any liability for any damages that may result from 
+echo   the use of this script.
 echo.
 echo.
 echo ///////////////////////////////////////////////////////////////////
