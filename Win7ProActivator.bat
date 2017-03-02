@@ -49,8 +49,11 @@ echo 10) Toshiba
 echo 11) Cancel
 echo.
 set /P MANUFACTURER="Enter selection: "
-if /i "%MANUFACTURER:~,1%" EQU "11" goto Install
-cmd /c "%cd%\installcert.bat"
+if /i "%MANUFACTURER:~,1%" EQU "11" ( 
+	goto Install 
+		) else (
+			cmd /c "%cd%\installcert.bat"
+)
 REM Install retail product key
 :INSTALLRETAIL
 cls
