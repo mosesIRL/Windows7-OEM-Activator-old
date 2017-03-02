@@ -2,6 +2,7 @@
 :InstallOrNot
 cls
 @echo off
+setlocal ENABLEEXTENSIONS
 mode con: cols=100 lines=35
 REM  https://github.com/mgiljum/Windows-7-Pro-Activator
 echo   __        _____ _   _     _____     ____  ____   ___     
@@ -27,17 +28,31 @@ echo.
 echo.
 echo ///////////////////////////////////////////////////////////////////
 echo.
-echo License type:
+REM Detect current edition
+FOR /F "usebackq skip=2 tokens=1-5" %%A IN (`reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v "ProductName" 2^>nul`) DO (
+    set ValueName=%%A
+    set ValueType=%%B
+    set Edition=%%E
+)
 echo.
-echo 1) Install OEM MS Windows 7 Pro License
+echo.
+REM Show current version and select license option
+:SELECTOPTION
+echo Current edition of Windows 7: %Edition%
+echo.
+echo.
+echo Select license type:
+echo.
+echo 1) Install OEM MS Windows 7 License
 echo 2) Install retail, volume or sticker product key
-echo 3) Skip activation
+echo 3) Exit
 echo.
 set /P LICENSETYPE="Enter selection: "
 if /i "%LICENSETYPE:~,1%" EQU "1" goto installoem
 if /i "%LICENSETYPE:~,1%" EQU "2" goto installretail
-if /i "%LICENSETYPE:~,1%" EQU "3" goto end
+if /i "%LICENSETYPE:~,1%" EQU "3" goto cancel
 goto INSTALLOEM
+REM Select Manufacturer
 :INSTALLOEM
 cls
 @echo off
@@ -127,6 +142,7 @@ cscript //B "%windir%\system32\slmgr.vbs" -ipk 2V8P2-QKJWM-4THM3-74PDB-4P2KH
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 del C:\Certs /Q
 goto END
+REM Install retail product key
 :INSTALLRETAIL
 cls
 set /P RETAILKEY="Enter retail/VLK or sticker key (WITH DASHES): "
@@ -146,4 +162,5 @@ echo.
 echo Press any key to exit...
 pause > nul
 cls
+:CANCEL
 exit /b
