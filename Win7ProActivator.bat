@@ -1,10 +1,10 @@
+REM  https://github.com/mgiljum/Windows-7-Pro-Activator
 @echo off
 :InstallOrNot
 cls
 @echo off
 setlocal ENABLEEXTENSIONS
 mode con: cols=100 lines=35
-REM  https://github.com/mgiljum/Windows-7-Pro-Activator
 echo   __        _____ _   _     _____     ____  ____   ___     
 echo " \ \      / /_ _| \ | |   |___  |   |  _ \|  _ \ / _ \    "
 echo "  \ \ /\ / / | ||  \| |      / /    | |_) | |_) | | | |   "
@@ -52,7 +52,7 @@ if /i "%LICENSETYPE:~,1%" EQU "1" goto installoem
 if /i "%LICENSETYPE:~,1%" EQU "2" goto installretail
 if /i "%LICENSETYPE:~,1%" EQU "3" goto cancel
 goto INSTALLOEM
-REM Select MANUFACTURERfacturer
+REM Select MANUFACTURER
 :INSTALLOEM
 cls
 @echo off
@@ -170,9 +170,27 @@ cls
 @echo off
 echo.
 echo.
-echo License installed!
+echo License installed, checking activation status...
 echo.
-REM Detect success?
+@echo off
+for /f "tokens=3 delims=: " %%a in (
+    'cscript //nologo "%systemroot%\system32\slmgr.vbs" /dli ^| find "License Status:"' 
+) do set "licenseStatus=%%a"
+
+if /i "%licenseStatus%"=="Licensed" (
+  echo License activated successfully!
+) else (
+  goto FAILEDRESTARTPROMPT )
+:FAILEDRESTARTPROMPT
+echo License activation failed. This may be because the certificate
+echo is not valid for your model or the wrong manufacturer was selected.
+echo.
+set /P restartprompt="Start over? (Y/N) "
+if /I "%restartprompt%" EQU "Y" goto RESTARTYES
+if /I "%restartprompt%" EQU "N" goto CANCEL
+:RESTARTYES
+GOTO :InstallOrNot
+pause
 echo Check Windows System Properties page to verify license is activated.
 echo.
 echo.
