@@ -179,6 +179,7 @@ for /f "tokens=3 delims=: " %%a in (
 
 if /i "%licenseStatus%"=="Licensed" (
   echo License activated successfully!
+  goto activationsuccess
 ) else (
   goto FAILEDRESTARTPROMPT )
 :FAILEDRESTARTPROMPT
@@ -191,7 +192,7 @@ if /I "%restartprompt%" EQU "N" goto CANCEL
 :RESTARTYES
 GOTO :InstallOrNot
 pause
-echo Check Windows System Properties page to verify license is activated.
+:ACTIVATIONSUCCESS
 echo.
 echo.
 echo Press any key to exit...
