@@ -1,9 +1,10 @@
+REM  https://github.com/mgiljum/Windows-7-Pro-Activator
 @echo off
 :InstallOrNot
+net stop FOGService > nul
 cls
 @echo off
 mode con: cols=100 lines=35
-REM  https://github.com/mgiljum/Windows-7-Pro-Activator
 echo   __        _____ _   _     _____     ____  ____   ___     
 echo " \ \      / /_ _| \ | |   |___  |   |  _ \|  _ \ / _ \    "
 echo "  \ \ /\ / / | ||  \| |      / /    | |_) | |_) | | | |   "
@@ -44,92 +45,94 @@ cls
 echo.
 echo Select manufacturer:
 echo 1) Acer
-echo 2) Alienware
-echo 3) Asus
-echo 4) Dell
-echo 5) Fujitsu
-echo 6) HP
-echo 7) IBM/Lenovo
-echo 8) Samsung
-echo 9) Sony
-echo 10) Toshiba
-echo 11) Cancel
+echo 2) Asus
+echo 3) Dell
+echo 4) Fujitsu
+echo 5) HP
+echo 6) IBM/Lenovo
+echo 7) Sony
+echo 8) Toshiba
+echo 9) Cancel
 echo.
 set /P MANU="Enter selection: "
 if /i "%MANU:~,1%" EQU "1" goto Acer
-if /i "%MANU:~,1%" EQU "2" goto Alienware
-if /i "%MANU:~,1%" EQU "3" goto Asus
-if /i "%MANU:~,1%" EQU "4" goto Dell
-if /i "%MANU:~,1%" EQU "5" goto Fujitsu
-if /i "%MANU:~,1%" EQU "6" goto HP
-if /i "%MANU:~,1%" EQU "7" goto Lenovo
-if /i "%MANU:~,1%" EQU "8" goto Samsung
-if /i "%MANU:~,1%" EQU "9" goto Sony
-if /i "%MANU:~,1%" EQU "10" goto Toshiba
-if /i "%MANU:~,1%" EQU "11" goto InstallOrNot
+if /i "%MANU:~,1%" EQU "2" goto Asus
+if /i "%MANU:~,1%" EQU "3" goto Dell
+if /i "%MANU:~,1%" EQU "4" goto Fujitsu
+if /i "%MANU:~,1%" EQU "5" goto HP
+if /i "%MANU:~,1%" EQU "6" goto Lenovo
+if /i "%MANU:~,1%" EQU "7" goto Sony
+if /i "%MANU:~,1%" EQU "8" goto Toshiba
+if /i "%MANU:~,1%" EQU "9" goto InstallOrNot
 goto INSTALLOEM
 :Acer
+echo Installing product key...
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\ACER-NEW.xrm-ms
-cscript //B "%windir%\system32\slmgr.vbs" -ipk YKHFT-KW986-GK4PY-FDWYH-7TP9F
-cscript //B "%windir%\system32\slmgr.vbs" -ato
-del C:\Certs /Q
-:Alienware
-cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\ALIENWARE.xrm-ms
-cscript //B "%windir%\system32\slmgr.vbs" -ipk 4CFBX-7HQ6R-3JYWF-72GXP-4MV6W
+cscript //B "%windir%\system32\slmgr.vbs" -ipk YKHFT­KW986­GK4PY­FDWYH­7TP9F
+echo Activating Windows...
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 del C:\Certs /Q
 goto END
 :Asus
+echo Installing product key...
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\ASUS-NEW.xrm-ms
-cscript //B "%windir%\system32\slmgr.vbs" -ipk 2WCJK-R8B4Y-CWRF2-TRJKB-PV9HW
+cscript //B "%windir%\system32\slmgr.vbs" -ipk 2WCJK­R8B4Y­CWRF2­TRJKB­PV9HW
+echo Activating Windows...
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 del C:\Certs /Q
 goto END
 :Dell
+echo Installing product key...
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\DELL.xrm-ms
-cscript //B "%windir%\system32\slmgr.vbs" -ipk 32KD2-K9CTF-M3DJT-4J3WC-733WD
+cscript //B "%windir%\system32\slmgr.vbs" -ipk 32KD2­K9CTF­M3DJT­4J3WC­733WD
+echo Activating Windows...
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 del C:\Certs /Q
 goto END
 :Fujitsu
+echo Installing product key...
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\FUJITSU.xrm-ms
-cscript //B "%windir%\system32\slmgr.vbs" -ipk PT9YK-BC2J9-WWYF9-R9DCR-QB9CK
+cscript //B "%windir%\system32\slmgr.vbs" -ipk PT9YK­BC2J9­WWYF9­R9DCR­QB9CK
+echo Activating Windows...
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 del C:\Certs /Q
 goto END
 :HP
+echo Installing product key...
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\HP-COMPAQ.xrm-ms
 cscript //B "%windir%\system32\slmgr.vbs" -ipk 74T2M-DKDBC-788W3-H689G-6P6GT
+echo Activating Windows...
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 del C:\Certs /Q
 goto END
 :Lenovo
+echo Installing product key...
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\IBM-LENOVO.xrm-ms
-cscript //B "%windir%\system32\slmgr.vbs" -ipk 237XB-GDJ7B-MV8MH-98QJM-24367
-cscript //B "%windir%\system32\slmgr.vbs" -ato
-del C:\Certs /Q
-goto END
-:Samsung
-cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\SAMSUNG.xrm-ms
-cscript //B "%windir%\system32\slmgr.vbs" -ipk GMJQF-JC7VC-76HMH-M4RKY-V4HX6
+cscript //B "%windir%\system32\slmgr.vbs" -ipk 237XB­GDJ7B­MV8MH­98QJM­24367
+echo Activating Windows...
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 del C:\Certs /Q
 goto END
 :Sony
+echo Installing product key...
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\SONY-NEW.xrm-ms
-cscript //B "%windir%\system32\slmgr.vbs" -ipk H9M26-6BXJP-XXFCY-7BR4V-24X8J
+cscript //B "%windir%\system32\slmgr.vbs" -ipk H9M26­6BXJP­XXFCY­7BR4V­24X8J
+echo Activating Windows...
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 del C:\Certs /Q
 goto END
 :Toshiba
+echo Installing product key...
 cscript //B "%windir%\system32\slmgr.vbs" -ilc C:\Certs\TOSHIBA.xrm-ms
-cscript //B "%windir%\system32\slmgr.vbs" -ipk 2V8P2-QKJWM-4THM3-74PDB-4P2KH
+cscript //B "%windir%\system32\slmgr.vbs" -ipk 2V8P2­QKJWM­4THM3­74PDB­4P2KH
+echo Activating Windows...
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 del C:\Certs /Q
 goto END
 :INSTALLRETAIL
 cls
 set /P RETAILKEY="Enter retail/VLK or sticker key (WITH DASHES): "
+echo Installing product key...
 cscript //B "%windir%\system32\slmgr.vbs" -ipk %retailkey%
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 goto END
@@ -143,7 +146,35 @@ echo.
 echo Check Windows System Properties page to verify license is activated.
 echo.
 echo.
-echo Press any key to exit...
-pause > nul
+pause
 cls
+@echo off
+echo.
+echo.
+echo Installing software updates...
+echo.
+echo.
+echo This process may take up to 15 minutes.
+echo.
+echo.
+choco upgrade all /y -r
+cls
+@echo off
+echo Software update complete.
+echo.
+echo.
+echo The installer will now start the FOG service to rename the computer
+echo and join it to the domain using the default settings. The computer
+echo should automatically restart two times. If it does not, check to make
+echo sure the FOG service is running. If it is, reinstall the FOG client software.
+echo.
+echo.
+pause
+net start FOGService > nul
+cls
+echo.
+echo.
+echo Cleaning up...
+rmdir /s /q C:\Certs > nul
+rmdir /s /q C:\SN_Drivers > nul
 exit /b
