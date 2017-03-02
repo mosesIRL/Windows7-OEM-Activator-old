@@ -1,5 +1,5 @@
-REM @echo off
-REM cls
+@echo off
+cls
 goto %~1
 echo.
 echo.
@@ -76,5 +76,5 @@ REM ACTIVATIONCOMPLETE
 echo.
 echo.
 set /P RESTART="Restart the computer? (Y/N) "
-if /i RESTART=="y" cmd /c "shutdown /f /r /t 0"
+if /i RESTART=="y" "shutdown /f /r /t 0"
 if /i RESTART=="n" exit /b

@@ -1,9 +1,53 @@
 REM  https://github.com/mgiljum/Windows-7-Pro-Activator
-REM @echo off
+@echo off
+CLS
+:init
+setlocal DisableDelayedExpansion
+set cmdInvoke=1
+set winSysFolder=System32
+set "batchPath=%~0"
+for %%k in (%0) do set batchName=%%~nk
+set "vbsGetPrivileges=%temp%\OEgetPriv_%batchName%.vbs"
+setlocal EnableDelayedExpansion
+
+:checkPrivileges
+NET FILE 1>NUL 2>NUL
+if '%errorlevel%' == '0' ( goto gotPrivileges ) else ( goto getPrivileges )
+
+:getPrivileges
+if '%1'=='ELEV' (echo ELEV & shift /1 & goto gotPrivileges)
+ECHO.
+ECHO **************************************
+ECHO Invoking UAC for Privilege Escalation
+ECHO **************************************
+
+ECHO Set UAC = CreateObject^("Shell.Application"^) > "%vbsGetPrivileges%"
+ECHO args = "ELEV " >> "%vbsGetPrivileges%"
+ECHO For Each strArg in WScript.Arguments >> "%vbsGetPrivileges%"
+ECHO args = args ^& strArg ^& " "  >> "%vbsGetPrivileges%"
+ECHO Next >> "%vbsGetPrivileges%"
+
+if '%cmdInvoke%'=='1' goto InvokeCmd 
+
+ECHO UAC.ShellExecute "!batchPath!", args, "", "runas", 1 >> "%vbsGetPrivileges%"
+goto ExecElevation
+
+:InvokeCmd
+ECHO args = "/c """ + "!batchPath!" + """ " + args >> "%vbsGetPrivileges%"
+ECHO UAC.ShellExecute "%SystemRoot%\%winSysFolder%\cmd.exe", args, "", "runas", 1 >> "%vbsGetPrivileges%"
+
+:ExecElevation
+"%SystemRoot%\%winSysFolder%\WScript.exe" "%vbsGetPrivileges%" %*
+exit /B
+
+:gotPrivileges
+setlocal & cd /d %~dp0
+if '%1'=='ELEV' (del "%vbsGetPrivileges%" 1>nul 2>nul  &  shift /1)
+
 del /f %~dp0log.txt
 :InstallOrNot
-REM cls
-REM mode con: cols=100 lines=35
+cls
+mode con: cols=100 lines=35
 type "%~dp0agreement.txt"
 REM Detect if Windows 7?
 REM Detect current edition
@@ -34,8 +78,7 @@ goto INSTALLOEM
 REM Select MANUFACTURER
 :INSTALLOEM
 echo OEM installation selected. >> %~dp0log.txt
-REM cls
-
+cls
 echo.
 echo Select MANUFACTURERfacturer:
 echo 1) Acer
@@ -60,7 +103,7 @@ exit /b
 REM Install retail product key
 :INSTALLRETAIL
 echo Retail key installation selected.
-REM cls
+cls
 set /P RETAILKEY="Enter retail/VLK or sticker key (WITH DASHES): "
 cscript //B "%windir%\system32\slmgr.vbs" -ipk %retailkey%
 echo Retail key installation started. >> %~dp0log.txt

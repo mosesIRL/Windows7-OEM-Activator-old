@@ -1,9 +1,0 @@
-Installed edition of Windows 7: Professional 
-OEM installation selected. 
-Manufacturer selected: HPCompaq 
-License A activation check failed. 
-License variant found. 
-Certificate B installed. 
-Product key B installed. 
-Activation attemp B started. 
-License B activation check failed. Product not supported. 
