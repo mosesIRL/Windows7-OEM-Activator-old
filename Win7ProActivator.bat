@@ -4,7 +4,7 @@ REM  https://github.com/mgiljum/Windows-7-Pro-Activator
 cls
 @echo off
 mode con: cols=100 lines=35
-type agreement.txt
+type "%cd%\agreement.txt"
 REM Detect if Windows 7?
 REM Detect current edition
 FOR /F "usebackq skip=2 tokens=1-5" %%A IN (`reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v "ProductName" 2^>nul`) DO (
@@ -50,11 +50,11 @@ echo 11) Cancel
 echo.
 set /P MANUFACTURER="Enter selection: "
 if /i "%MANUFACTURER:~,1%" EQU "11" goto Install
-cmd /c "installcert.bat"
+cmd /c "%cd%\installcert.bat"
 REM Install retail product key
 :INSTALLRETAIL
 cls
 set /P RETAILKEY="Enter retail/VLK or sticker key (WITH DASHES): "
 cscript //B "%windir%\system32\slmgr.vbs" -ipk %retailkey%
 cscript //B "%windir%\system32\slmgr.vbs" -ato
-cmd /c retailcheckstatus.bat
+cmd /c "%cd%\retailcheckstatus.bat"
