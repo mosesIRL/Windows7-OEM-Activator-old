@@ -21,8 +21,10 @@ The digital certificates included are property of their respective owners. They 
 
 ##Usage:
 
-1. Copy the "Certs" folder to the root of your C:\ drive.
-2. Right click the batch file and run as administrator.
+1. Download the ZIP
+2. Run Win7ProActivator.bat
+3. Allow UAC when prompted.
+4. Follow the prompts.
 
 ##Supported Windows 7 Editions:
 - Starter
