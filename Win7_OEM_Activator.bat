@@ -38,7 +38,7 @@ ECHO UAC.ShellExecute "%SystemRoot%\%winSysFolder%\cmd.exe", args, "", "runas", 
 
 :ExecElevation
 "%SystemRoot%\%winSysFolder%\WScript.exe" "%vbsGetPrivileges%" %*
-exit /b
+exit
 
 :gotPrivileges
 setlocal & cd /d %~dp0
@@ -47,7 +47,7 @@ if exist %~dp0log.txt del /f /q %~dp0log.txt
 
 REM **************************************************************************************************************************************
 
-:CheckWinVersion
+:CHECKWINVERSION
 for /f "tokens=4-5 delims=. " %%i in ('ver') do set WINVERSION=%%i.%%j
 if NOT "%version%" == "6.1" (
 	echo.
@@ -61,7 +61,7 @@ if NOT "%version%" == "6.1" (
 	exit /b
 )
 
-:GetCurrentEdition
+:GETCURRENTEDITION
 cls
 mode con: cols=100 lines=35
 type "%~dp0lib\agreement.txt"
@@ -85,6 +85,19 @@ if "%EDITION%" == "Enterprise" (
 	exit /b
 )
 
+:GETMANUFACTURER
+for /f "usebackq tokens=2 delims==" %%A IN (`wmic csproduct get vendor /value`) DO SET VENDOR=%%A
+if "%~1"=="auto" (
+	call "%~dp0lib\installcert.bat" VALIDATEVENDOR
+	exit /b
+)
+if "%~1"=="retail" (
+	goto INSTALLRETAIL
+)
+if "%~1"=="manual" (
+	goto manualinstall
+)
+
 :SELECTOPTION
 cls
 echo.
@@ -98,17 +111,20 @@ echo.
 echo.
 echo.   Select license type:
 echo.
-echo.   1) Install OEM MS Windows 7 License
-echo.   2) Install retail, volume or sticker product key
-echo.   3) Cancel/Exit
+echo.   1) Automatic Activation
+echo.   2) Manual activation (select manufacturer and Windows edition)
+echo.   3) Install retail, volume or sticker product key
+echo.   4) Cancel/Exit
 echo.
 set /P LICENSETYPE="Enter selection: "
-if /i "%LICENSETYPE:~,1%" EQU "1" goto installoem
-if /i "%LICENSETYPE:~,1%" EQU "2" goto installretail
-if /i "%LICENSETYPE:~,1%" EQU "3" exit /b
-goto SELECTOPTION
+if /i "%LICENSETYPE:~,1%" EQU "1" call "%~dp0lib\installcert.bat" VALIDATEVENDOR
+exit
+if /i "%LICENSETYPE:~,1%" EQU "2" goto manualinstall
+if /i "%LICENSETYPE:~,1%" EQU "3" goto installretail
+if /i "%LICENSETYPE:~,1%" EQU "4" exit /b
+goto MANUALINSTALL
 
-:INSTALLOEM
+:MANUALINSTALL
 echo OEM installation selected. >> %~dp0log.txt
 cls
 type "%~dp0lib\headertitle.txt"

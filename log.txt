@@ -1,2 +1,1 @@
    Installed edition of Windows 7: Pro 
-OEM installation selected. 
