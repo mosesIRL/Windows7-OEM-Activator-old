@@ -94,6 +94,8 @@ if "%EDITION%" == "Enterprise" (
 
 :GETMANUFACTURER
 for /f "usebackq tokens=2 delims==" %%A IN (`wmic csproduct get vendor /value`) DO SET VENDOR=%%A
+
+:GETMODE
 if "%~1"=="auto" (
 	echo Automatic mode selected.>>%~dp0log.txt
 	set AUTOMODE=="true"
