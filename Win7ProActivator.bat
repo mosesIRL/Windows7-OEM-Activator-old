@@ -45,7 +45,22 @@ setlocal & cd /d %~dp0
 if '%1'=='ELEV' (del "%vbsGetPrivileges%" 1>nul 2>nul  &  shift /1)
 
 del /f %~dp0log.txt
-:InstallOrNot
+:CheckIfAlreadyActivated
+for /f "tokens=3 delims=: " %%a in (
+    'cscript //nologo "%systemroot%\system32\slmgr.vbs" /dli ^| find "License Status:"' 
+) do set "licenseStatus=%%a"
+
+if /i "%licenseStatus%"=="Licensed" (
+  echo Windows 7 is already licensed. >> %~dp0log.txt
+  echo This license for this copy of Windows 7.
+  echo is already activated. Are you sure you
+  echo want to continue?
+  set /P CONTINUE="Continue? (Y/N): "
+  if /i "%CONTINUE%" EQU "y" goto begin
+  if /i "%CONTINUE%" EQU "n" goto exit /b
+) else (
+  goto Begin )
+:Begin
 cls
 mode con: cols=100 lines=35
 type "%~dp0agreement.txt"
