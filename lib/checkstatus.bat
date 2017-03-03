@@ -94,8 +94,12 @@ if /i TRYAGAIN=="y" call "%~dp0Win7_OEM_Activator.bat"
 if /i TRYAGAIN=="n" exit
 
 :ACTIVATIONCOMPLETE
+@echo on
 echo.
 echo.
 set /P RESTART="Restart the computer? (Y/N) "
-if /i RESTART=="y" "shutdown /f /r /t 0"
-if /i RESTART=="n" exit /b
+if /i "%RESTART%" EQU "Y" cmd /c "shutdown /f /r /t 0"
+if /i "%RESTART%" EQU "y" cmd /c "shutdown /f /r /t 0"
+if /i "%RESTART%" EQU "N" exit /b
+if /i "%RESTART%" EQU "n" exit /b
+pause
