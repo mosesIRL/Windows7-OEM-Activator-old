@@ -49,7 +49,9 @@ REM ****************************************************************************
 
 :CHECKWINVERSION
 for /f "tokens=4-5 delims=. " %%i in ('ver') do set WINVERSION=%%i.%%j
-if NOT "%version%" == "6.1" (
+if NOT "%winversion%" == "6.1" (
+	cls
+	echo Version of Windows is %winversion%. Supported version is 6.1. Cannot continue. >>%~dp0log.txt
 	echo.
 	echo.
 	echo.         You are currently running an unsupported version
@@ -74,6 +76,7 @@ FOR /F "usebackq tokens=3-4* delims= " %%A IN (`reg query "HKLM\Software\Microso
 )
 if "%EDITION%" == "Enterprise" (
     cls
+	echo Edition of Windows is %EDITION%. This edition is not supported. Cannot continue. >>%~dp0log.txt
 	echo.
 	echo.
 	echo.         You are currently running Windows 7 Enterprise.
