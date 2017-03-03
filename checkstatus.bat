@@ -24,7 +24,7 @@ echo or the product key you entered doesn't match the
 echo installed version.
 echo.
 set /P restartprompt="Start over? (Y/N) "
-if /I "%restartprompt%" EQU "Y" call "%~dp0Win7ProActivator.bat"
+if /I "%restartprompt%" EQU "Y" call "%~dp0Win7_OEM_Activator.bat"
 if /I "%restartprompt%" EQU "N" goto ACTIVATIONCOMPLETE
 
 :CHECKOEM
@@ -86,7 +86,7 @@ echo.
 echo.   License activation failed. This may be due to an
 echo.   unspported image of Windows 7, or an unsupported make/model.
 set /P TRYAGAIN="Start over? (Y/N) "
-if /i TRYAGAIN=="y" call "%~dp0Win7ProActivator.bat"
+if /i TRYAGAIN=="y" call "%~dp0Win7_OEM_Activator.bat"
 if /i TRYAGAIN=="n" exit
 
 :ACTIVATIONCOMPLETE
