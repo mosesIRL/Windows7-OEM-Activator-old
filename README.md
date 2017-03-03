@@ -21,10 +21,8 @@ The digital certificates included are property of their respective owners. They 
 
 ##Usage:
 
-1. Download the ZIP and extract everything to a folder.
-2. Run Win7ProActivator.bat
-3. Allow UAC when prompted.
-4. Follow the prompts.
+1. **Prior to finalizing your image in sysprep:** Download the ZIP and extract everything to `C:\Windows\Setup\Scripts`
+2. *Optional*: Edit the `SetupComplete.cmd` file and add anything you need to the bottom.
 
 ##Supported Windows 7 Editions:
 - Starter
