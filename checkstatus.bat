@@ -34,7 +34,10 @@ for /f "tokens=3 delims=: " %%a in (
 
 if /i "%licenseStatus%"=="Licensed" (
   echo License A activation check successful >> %~dp0log.txt
-  echo License activated successfully!
+  type "%~dp0headertitle.txt"
+  echo.
+  echo.
+  echo.   License activated successfully!
   goto ACTIVATIONCOMPLETE
 ) else (
   goto TRYBVARIANT )
@@ -55,6 +58,9 @@ for /f "tokens=3 delims=: " %%a in (
 ) do set "licenseStatus=%%a"
 
 if /i "%licenseStatus%"=="Licensed" (
+  type "%~dp0headertitle.txt"
+  echo.
+  echo.
   echo License B activation check successful. >>%~dp0log.txt
   echo License activated successfully!
   echo.
@@ -65,9 +71,11 @@ if /i "%licenseStatus%"=="Licensed" (
 	goto UNSUPPORTED
 )
 :UNSUPPORTED
-REM UNSUPPORTED
-echo License activation failed. This may be due to an
-echo unspported image of Windows 7, or an unsupported make/model.
+type "%~dp0headertitle.txt"
+echo.
+echo.
+echo.   License activation failed. This may be due to an
+echo.   unspported image of Windows 7, or an unsupported make/model.
 set /P TRYAGAIN="Start over? (Y/N) "
 if /i TRYAGAIN=="y" call "%~dp0Win7ProActivator.bat"
 if /i TRYAGAIN=="n" exit

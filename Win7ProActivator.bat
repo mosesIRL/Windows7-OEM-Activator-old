@@ -48,15 +48,20 @@ if exist %~dp0log.txt del /f /q %~dp0log.txt
 :CheckWinVersion
 for /f "tokens=4-5 delims=. " %%i in ('ver') do set WINVERSION=%%i.%%j
 if NOT "%version%" == "6.1" (
-	echo You are currently running an unsupported version
-	echo of Windows. This script only supports Windows 7.
-	echo Sorry^^!
 	echo.
-	echo Press any key to exit...
+	echo.
+	echo.         You are currently running an unsupported version
+	echo.         of Windows. This script only supports Windows 7.
+	echo.         Sorry^^!
+	echo.
+	echo.         Press any key to exit...
 	PAUSE > NUL
 	exit /b
 )
-:Begin
+
+REM **************************************************************************************************************************************
+
+:GetCurrentEdition
 cls
 mode con: cols=100 lines=35
 type "%~dp0agreement.txt"
@@ -67,45 +72,60 @@ FOR /F "usebackq skip=2 tokens=1-5" %%A IN (`reg query "HKLM\Software\Microsoft\
     set ValueType=%%B
     set EDITION=%%E
 )
-echo.
-echo.
+if "%EDITION%" == "Enterprise" (
+    cls
+	echo.
+	echo.
+	echo.         You are currently running Windows 7 Enterprise.
+	echo.         Unfortunately, this script does not support this
+	echo.         edition of Windows. Sorry^^!
+	echo.
+	echo.         Press any key to exit...
+	PAUSE > NUL
+	exit /b
+)
+
 :SELECTOPTION
 cls
+echo.
+echo.
 type "%~dp0agreement.txt"
 echo.
 echo.
-echo Installed edition of Windows 7: %EDITION% >> %~dp0log.txt
-echo Installed edition of Windows 7: %EDITION%
+echo.   Installed edition of Windows 7: %EDITION% >> %~dp0log.txt
+echo.   Installed edition of Windows 7: %EDITION%
 echo.
 echo.
-echo Select license type:
+echo.   Select license type:
 echo.
-echo 1) Install OEM MS Windows 7 License
-echo 2) Install retail, volume or sticker product key
-echo 3) Cancel/Exit
+echo.   1) Install OEM MS Windows 7 License
+echo.   2) Install retail, volume or sticker product key
+echo.   3) Cancel/Exit
 echo.
 set /P LICENSETYPE="Enter selection: "
 if /i "%LICENSETYPE:~,1%" EQU "1" goto installoem
 if /i "%LICENSETYPE:~,1%" EQU "2" goto installretail
 if /i "%LICENSETYPE:~,1%" EQU "3" exit /b
 goto INSTALLOEM
-REM Select MANUFACTURER
+
 :INSTALLOEM
 echo OEM installation selected. >> %~dp0log.txt
 cls
+type "%~dp0headertitle.txt"
 echo.
-echo Select MANUFACTURERfacturer:
-echo 1) Acer
-echo 2) Alienware
-echo 3) Asus
-echo 4) Dell
-echo 5) Fujitsu
-echo 6) HP
-echo 7) IBM/Lenovo
-echo 8) Samsung
-echo 9) Sony
-echo 10) Toshiba
-echo 11) Start Over
+echo.
+echo.   Select manufacturer:
+echo.   1) Acer
+echo.   2) Alienware
+echo.   3) Asus
+echo.   4) Dell
+echo.   5) Fujitsu
+echo.   6) HP
+echo.   7) IBM/Lenovo
+echo.   8) Samsung
+echo.   9) Sony
+echo.   10) Toshiba
+echo.   11) Start Over
 echo.
 set /P MANUFACTURER="Enter selection: "
 if /i "%MANUFACTURER:~,1%" EQU "11" ( 
@@ -114,7 +134,7 @@ if /i "%MANUFACTURER:~,1%" EQU "11" (
 			cmd /c "%~dp0installcert.bat"
 )
 exit /b
-REM Install retail product key
+
 :INSTALLRETAIL
 echo Retail key installation selected.
 cls
