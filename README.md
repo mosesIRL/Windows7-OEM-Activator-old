@@ -3,19 +3,19 @@ This is a batch script for activating Windows 7 using an OEM certificate. For co
 
 You can also use it to install a retail or volume license key. 
 
-# Main Features
+## Main Features
 
 - Unattended mode (detect manufacturer and auto-install matching certificate/key) ✔
 - Multiple edition support (Starter, Home Prem/Basic and Ultimate) ✔
 - Detect incompatible Windows versions or editions ✔
 - Autodetect failed activation and try alternate ✔
 
-# Usage:
+## Usage:
 
 1. Download the zip and extract to a folder.
 2. Double click Win7-OEM-Activator.bat
 
-# Switches
+## Switches
 
 The script supports several modes. The usage is "Win7-OEM-Activator `MODE`"
 
