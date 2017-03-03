@@ -23,10 +23,18 @@ FOR %%G IN ("Acer"
 )
 
 :INVALIDVENDOR
-echo.   Your PC reported that it's manufacturer is %VENDOR%.
+type "%~dp0lib\agreement.txt"
+echo.
+echo.   Your PC reported that it's manufacturer is "%VENDOR%".
+echo.  
 echo.   This was not recognized by the activator script.
 echo.   If you believe this is an error, restart the script
 echo.   and use the manual mode to select the vendor.
+echo.
+echo.
+echo Press any key to exit...
+pause >nul
+exit /b
 
 :AUTOMATCHMANU
 if /i %VENDOR% EQU "Acer" DO SET MANU=AcerGatewayPackard
