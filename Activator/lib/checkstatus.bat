@@ -2,6 +2,7 @@
 cls
 goto %~1
 :RETAILCHECK
+type %~dp0headertitle.txt
 echo.
 echo.
 echo License installed, checking activation status...
@@ -11,11 +12,13 @@ for /f "tokens=3 delims=: " %%a in (
 ) do set "licenseStatus=%%a"
 
 if /i "%licenseStatus%"=="Licensed" (
-  echo Retailed key activation successful. >> %~dp0log.txt
-  echo License activated successfully!
-  goto ACTIVATIONCOMPLETE
-) else (
-  goto FAILEDRESTARTPROMPT )
+	cls
+	echo Retailed key activation successful. >> %~dp0log.txt
+	echo License activated successfully!
+	goto ACTIVATIONCOMPLETE
+		) else (
+			goto FAILEDRESTARTPROMPT 
+)
   
 :FAILEDRESTARTPROMPT
 echo Retail license key activation failed. >> %~dp0log.txt
@@ -28,7 +31,7 @@ if /I "%restartprompt%" EQU "Y" call "%~dp0Win7_OEM_Activator.bat"
 if /I "%restartprompt%" EQU "N" goto ACTIVATIONCOMPLETE
 
 :CHECKOEM
-type "%~dp0lib\headertitle.txt"
+type %~dp0headertitle.txt
 echo.
 echo.
 echo License installed, checking activation status...
@@ -39,7 +42,8 @@ for /f "tokens=3 delims=: " %%a in (
 
 if /i "%licenseStatus%"=="Licensed" (
   echo License A activation check successful >> %~dp0log.txt
-  type "%~dp0lib\headertitle.txt"
+  cls
+  type %~dp0headertitle.txt
   echo.
   echo.
   echo.   License activated successfully!
@@ -57,7 +61,7 @@ call "%~dp0lib\installcert.bat" InstallB
 		goto UNSUPPORTED
 )
 :BVARIANTTEST
-type "%~dp0lib\headertitle.txt"
+type %~dp0headertitle.txt
 echo.
 echo.
 echo Alternate license installed, checking activation status...
@@ -67,7 +71,7 @@ for /f "tokens=3 delims=: " %%a in (
 ) do set "licenseStatus=%%a"
 
 if /i "%licenseStatus%"=="Licensed" (
-  type "%~dp0lib\headertitle.txt"
+  type %~dp0headertitle.txt
   echo.
   echo.
   echo License B activation check successful. >>%~dp0log.txt
@@ -80,7 +84,7 @@ if /i "%licenseStatus%"=="Licensed" (
 	goto UNSUPPORTED
 )
 :UNSUPPORTED
-type "%~dp0lib\headertitle.txt"
+type %~dp0headertitle.txt
 echo.
 echo.
 echo.   License activation failed. This may be due to an
@@ -90,8 +94,12 @@ if /i TRYAGAIN=="y" call "%~dp0Win7_OEM_Activator.bat"
 if /i TRYAGAIN=="n" exit /b
 
 :ACTIVATIONCOMPLETE
+@echo on
 echo.
 echo.
 set /P RESTART="Restart the computer? (Y/N) "
-if /i RESTART=="y" "shutdown /f /r /t 0"
-if /i RESTART=="n" exit /b
+if /i "%RESTART%" EQU "Y" cmd /c "shutdown /f /r /t 0"
+if /i "%RESTART%" EQU "y" cmd /c "shutdown /f /r /t 0"
+if /i "%RESTART%" EQU "N" exit /b
+if /i "%RESTART%" EQU "n" exit /b
+pause
