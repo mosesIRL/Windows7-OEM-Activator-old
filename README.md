@@ -14,7 +14,7 @@ The following features were added as of version 1.0.0:
 Please suggest any features you'd like to see.
 
 ##Read This Notice:##
-The use of this script assumes you have a device with valid installation or downgrade rights to Windows 7 Professional, or a valid Windows 7 retail or volume product key. The use of this script may be a violation of specific manufacturer agreements, so it is best to check with your manufacturer before using this script. The author assumes no responsibility for any misuse or any liability for any damages that may result from the use of this script.
+The use of this script assumes you have a device with valid installation or downgrade rights to Windows 7, or a valid Windows 7 retail or volume product key. The use of this script may be a violation of specific manufacturer agreements, so it is best to check with your manufacturer before using this script. This script does not make use of pirated Microsoft product keys. The use of any pirated product keys is discouraged by the author. The author assumes no responsibility for any misuse or any liability for any damages that may result from the use of this script. 
 
 The digital certificates included are property of their respective owners. They were obtained from the Dell support forums here: http://en.community.dell.com/support-forums/software-os/m/microsoft_os/20443565
 
