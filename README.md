@@ -10,9 +10,10 @@ This branch is set up a couple extra features for the folks that use FOG Project
 
 # Main Features
 
+- Automatic mode (detect manufacturer and auto-install matching certificate/key) ✔
 - Multiple edition support (Starter, Home Prem/Basic and Ultimate) ✔
 - Detect incompatible Windows versions or editions ✔
-- Autodetect failed activation and alternative certificate attempt ✔
+- Autodetect failed activation and try alternate ✔
 
 # Usage:
 
