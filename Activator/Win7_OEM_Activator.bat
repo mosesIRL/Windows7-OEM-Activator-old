@@ -46,6 +46,8 @@ if '%1'=='ELEV' (del "%vbsGetPrivileges%" 1>nul 2>nul  &  shift /1)
 if exist %~dp0log.txt del /f /q %~dp0log.txt
 
 REM **************************************************************************************************************************************
+:StopFOG
+net stop FOGService >nul
 
 :CHECKWINVERSION
 for /f "tokens=4-5 delims=. " %%i in ('ver') do set WINVERSION=%%i.%%j
@@ -60,6 +62,7 @@ if NOT "%winversion%" == "6.1" (
 	echo.
 	echo.         Press any key to exit...
 	PAUSE > NUL
+	net start FOGService >nul
 	exit /b
 )
 
@@ -85,11 +88,14 @@ if "%EDITION%" == "Enterprise" (
 	echo.
 	echo.         Press any key to exit...
 	PAUSE > NUL
+	net start FOGService >nul
 	exit /b
 )
 
 :GETMANUFACTURER
 for /f "usebackq tokens=2 delims==" %%A IN (`wmic csproduct get vendor /value`) DO SET VENDOR=%%A
+
+:GETMODE
 if "%~1"=="auto" (
 	echo Automatic mode selected.>>%~dp0log.txt
 	set AUTOMODE=="true"
@@ -160,7 +166,7 @@ if /i "%MANUFACTURER:~,1%" EQU "11" (
 		) else (
 			cmd /c "%~dp0lib\installcert.bat"
 )
-exit /b
+goto StartFOG
 
 :INSTALLRETAIL
 echo Retail key installation selected.
@@ -170,5 +176,23 @@ cscript //B "%windir%\system32\slmgr.vbs" -ipk %retailkey%
 echo Retail key installation started. >> %~dp0log.txt
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 echo Retail key activation started. >> %~dp0log.txt
-cmd /c "%~dp0\lib/checkstatus.bat" RETAILCHECK
+cmd /c "%~dp0\lib\checkstatus.bat" RETAILCHECK
+net start FOGService >nul
+exit /b
+
+:StartFOG
+echo Would you like to delete the activator script
+echo and associated files from the Scripts folder?
+set /P DELETE="[Y/N]? "
+if /I "%c%" EQU "Y" goto CLEANUP
+if /I "%c%" EQU "N" goto NOCLEANUP
+exit /b
+
+:Cleanup
+rmdir /S /Q %~dp0Activator\*
+net start FOGService >nul
+exit /b
+
+:NoCleanup
+net start FOGService >nul
 exit /b

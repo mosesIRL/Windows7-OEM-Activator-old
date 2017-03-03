@@ -91,7 +91,7 @@ echo.   License activation failed. This may be due to an
 echo.   unspported image of Windows 7, or an unsupported make/model.
 set /P TRYAGAIN="Start over? (Y/N) "
 if /i TRYAGAIN=="y" call "%~dp0Win7_OEM_Activator.bat"
-if /i TRYAGAIN=="n" exit
+if /i TRYAGAIN=="n" exit /b
 
 :ACTIVATIONCOMPLETE
 if %unattended%=="true" GOTO UNATTENDEDCOMPLETE
