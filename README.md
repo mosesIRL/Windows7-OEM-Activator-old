@@ -18,7 +18,7 @@ This branch is set up a couple extra features for the folks that use FOG Project
 # Usage:
 
 1. **Prior to finalizing your image in sysprep:** Download the ZIP and extract everything to `C:\Windows\Setup\Scripts`
-2. *Optional*: Edit the `SetupComplete.cmd` file and add anything you need to the bottom.
+2. Select a mode by opening the SetupComplete.cmd file and reading the instructions.
 
 ##Read This Notice:##
 The use of this script assumes you have a device with valid installation or downgrade rights to Windows 7, or a valid Windows 7 retail or volume product key. The use of this script may be a violation of specific manufacturer agreements, so it is best to check with your manufacturer before using this script. This script does not make use of pirated Microsoft product keys. The use of any pirated product keys is discouraged by the author. The author assumes no responsibility for any misuse or any liability for any damages that may result from the use of this script. 
