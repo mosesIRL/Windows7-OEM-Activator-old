@@ -4,6 +4,23 @@ if "%~1"=="" (
 	) else (
 		goto %~1
 )
+:AUTOMATCHMANU
+if /i %VENDOR% EQU "Acer" DO SET MANU=AcerGatewayPackard
+if /i %VENDOR% EQU "Gateway" DO SET MANU=AcerGatewayPackard
+if /i %VENDOR% EQU "Packard" DO SET MANU=AcerGatewayPackard
+if /i %VENDOR% EQU "Alienware" DO SET MANU=Alienware
+if /i %VENDOR% EQU "ASUS" DO SET MANU=ASUS
+if /i %VENDOR% EQU "Dell Inc." DO SET MANU=Dell
+if /i %VENDOR% EQU "Fujitsu" DO SET MANU=Fujitsu
+if /i %VENDOR% EQU "HP" DO SET MANU=HPCompaq
+if /i %VENDOR% EQU "Compaq" DO SET MANU=HPCompaq
+if /i %VENDOR% EQU "Lenovo" DO SET MANU=LenovoIBM
+if /i %VENDOR% EQU "IBM" DO SET MANU=LenovoIBM
+if /i %VENDOR% EQU "Samsung" DO SET MANU=Samsung
+if /i %VENDOR% EQU "Sony" DO SET MANU=Sony
+if /i %VENDOR% EQU "Toshiba" DO SET MANU=Toshiba
+goto INSTALLA
+
 :MATCHMANU
 if /i "%MANUFACTURER:~,1%" EQU "1" SET MANU=AcerGatewayPackard
 if /i "%MANUFACTURER:~,1%" EQU "2" SET MANU=Alienware

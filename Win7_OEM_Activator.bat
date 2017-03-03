@@ -47,7 +47,7 @@ if exist %~dp0log.txt del /f /q %~dp0log.txt
 
 REM **************************************************************************************************************************************
 
-:CheckWinVersion
+:CHECKWINVERSION
 for /f "tokens=4-5 delims=. " %%i in ('ver') do set WINVERSION=%%i.%%j
 if NOT "%version%" == "6.1" (
 	echo.
@@ -61,7 +61,7 @@ if NOT "%version%" == "6.1" (
 	exit /b
 )
 
-:GetCurrentEdition
+:GETCURRENTEDITION
 cls
 mode con: cols=100 lines=35
 type "%~dp0lib\agreement.txt"
@@ -85,6 +85,9 @@ if "%EDITION%" == "Enterprise" (
 	exit /b
 )
 
+:GETMANUFACTURER
+for /f "usebackq tokens=2 delims==" %%A IN (`wmic csproduct get vendor /value`) DO SET VENDOR=%%A
+
 :SELECTOPTION
 cls
 echo.
@@ -98,17 +101,19 @@ echo.
 echo.
 echo.   Select license type:
 echo.
-echo.   1) Install OEM MS Windows 7 License
+echo.   1) Automatic Activation
+echo.   1) Manual activation (select manufacturer and Windows edition)
 echo.   2) Install retail, volume or sticker product key
 echo.   3) Cancel/Exit
 echo.
 set /P LICENSETYPE="Enter selection: "
-if /i "%LICENSETYPE:~,1%" EQU "1" goto installoem
-if /i "%LICENSETYPE:~,1%" EQU "2" goto installretail
-if /i "%LICENSETYPE:~,1%" EQU "3" exit /b
+if /i "%LICENSETYPE:~,1%" EQU "1" call "%~dp0lib\installcert.bat" AUTOMATCHMANU
+if /i "%LICENSETYPE:~,1%" EQU "2" goto manualinstall
+if /i "%LICENSETYPE:~,1%" EQU "3" goto installretail
+if /i "%LICENSETYPE:~,1%" EQU "4" exit /b
 goto INSTALLOEM
 
-:INSTALLOEM
+:MANUALINSTALL
 echo OEM installation selected. >> %~dp0log.txt
 cls
 type "%~dp0lib\headertitle.txt"
