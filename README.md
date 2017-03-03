@@ -11,7 +11,7 @@ The following features are being developed for the script:
 - Detect incompatible Windows versions or editions ✔
 - Autodetect failed activation and alternative certificate attempt ✔
 - ~~Autodetect manufacturer (too many variables, might come back to this later)~~
-- Eventually will be ported over to Powershell or VB.
+- Eventually will be ported over to VB w/ a GUI.
 
 Please suggest any features you'd like to see.
 
