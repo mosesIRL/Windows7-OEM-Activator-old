@@ -1,4 +1,4 @@
-REM  https://github.com/mgiljum/Windows-7-Pro-Activator
+REM https://github.com/mgiljum/Windows-7-Pro-Activator
 @echo off
 CLS
 :init
@@ -38,13 +38,24 @@ ECHO UAC.ShellExecute "%SystemRoot%\%winSysFolder%\cmd.exe", args, "", "runas", 
 
 :ExecElevation
 "%SystemRoot%\%winSysFolder%\WScript.exe" "%vbsGetPrivileges%" %*
-exit /B
+exit /b
 
 :gotPrivileges
 setlocal & cd /d %~dp0
 if '%1'=='ELEV' (del "%vbsGetPrivileges%" 1>nul 2>nul  &  shift /1)
-del /f %~dp0log.txt
+if exist %~dp0log.txt del /f /q %~dp0log.txt
 
+:CheckWinVersion
+for /f "tokens=4-5 delims=. " %%i in ('ver') do set WINVERSION=%%i.%%j
+if NOT "%version%" == "6.1" (
+	echo You are currently running an unsupported version
+	echo of Windows. This script only supports Windows 7.
+	echo Sorry^^!
+	echo.
+	echo Press any key to exit...
+	PAUSE > NUL
+	exit /b
+)
 :Begin
 cls
 mode con: cols=100 lines=35
@@ -58,25 +69,11 @@ FOR /F "usebackq skip=2 tokens=1-5" %%A IN (`reg query "HKLM\Software\Microsoft\
 )
 echo.
 echo.
-:CheckIfAlreadyActivated
-for /f "tokens=3 delims=: " %%a in (
-    'cscript //nologo "%systemroot%\system32\slmgr.vbs" /dli ^| find "License Status:"' 
-) do set "licenseStatus=%%a"
-
-if /i "%licenseStatus%"=="Licensed" (
-  echo Windows 7 is already licensed. >> %~dp0log.txt
-  echo This license for this copy of Windows 7.
-  echo is already activated. Are you sure you
-  echo want to continue?
-  set /P CONTINUE="Continue? (Y/N): "
-  if /i "%CONTINUE%" EQU "y" goto begin
-  if /i "%CONTINUE%" EQU "n" goto exit /b
-) else (
-  goto Begin )
-REM Show current version and select license option
 :SELECTOPTION
 cls
 type "%~dp0agreement.txt"
+echo.
+echo.
 echo Installed edition of Windows 7: %EDITION% >> %~dp0log.txt
 echo Installed edition of Windows 7: %EDITION%
 echo.
