@@ -1,4 +1,3 @@
-@echo off
 if "%~1"=="" (
 	goto MATCHMANU
 	) else (
@@ -74,7 +73,7 @@ cscript //B "%windir%\system32\slmgr.vbs" -ipk %keya%
 echo Product key A installed.
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 echo Activation attempt A started.
-call "%~dp0\lib/checkstatus.bat" CHECKOEM
+call "%~dp0checkstatus.bat" CHECKOEM
 exit /b
 
 :InstallB
@@ -86,5 +85,5 @@ cscript //B "%windir%\system32\slmgr.vbs" -ipk %keyb%
 echo Product key B installed. >> %~dp0log.txt
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 echo Activation attempt B started. >> %~dp0log.txt
-call "%~dp0\lib/checkstatus.bat" BVARIANTTEST
+call "%~dp0checkstatus.bat" BVARIANTTEST
 exit /b

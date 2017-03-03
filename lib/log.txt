@@ -1,0 +1,7 @@
+Manufacturer selected:  
+Manufacturer selected:  
+Manufacturer selected:  
+License A activation check failed. 
+License variant not found. 
+License A activation check successful 
+License A activation check successful 
