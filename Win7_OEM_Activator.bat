@@ -64,7 +64,7 @@ if NOT "%version%" == "6.1" (
 :GetCurrentEdition
 cls
 mode con: cols=100 lines=35
-type "%~dp0agreement.txt"
+type "%~dp0lib\agreement.txt"
 REM Detect if Windows 7?
 REM Detect current edition
 FOR /F "usebackq skip=2 tokens=1-5" %%A IN (`reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v "ProductName" 2^>nul`) DO (
@@ -89,7 +89,7 @@ if "%EDITION%" == "Enterprise" (
 cls
 echo.
 echo.
-type "%~dp0agreement.txt"
+type "%~dp0lib\agreement.txt"
 echo.
 echo.
 echo.   Installed edition of Windows 7: %EDITION% >> %~dp0log.txt
@@ -111,7 +111,7 @@ goto INSTALLOEM
 :INSTALLOEM
 echo OEM installation selected. >> %~dp0log.txt
 cls
-type "%~dp0headertitle.txt"
+type "%~dp0lib\headertitle.txt"
 echo.
 echo.
 echo.   Select manufacturer:
@@ -131,7 +131,7 @@ set /P MANUFACTURER="Enter selection: "
 if /i "%MANUFACTURER:~,1%" EQU "11" ( 
 	goto InstallOrNot
 		) else (
-			cmd /c "%~dp0installcert.bat"
+			cmd /c "%~dp0lib\installcert.bat"
 )
 exit /b
 
@@ -143,5 +143,5 @@ cscript //B "%windir%\system32\slmgr.vbs" -ipk %retailkey%
 echo Retail key installation started. >> %~dp0log.txt
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 echo Retail key activation started. >> %~dp0log.txt
-cmd /c "%~dp0checkstatus.bat" RETAILCHECK
+cmd /c "%~dp0\lib/checkstatus.bat" RETAILCHECK
 exit /b

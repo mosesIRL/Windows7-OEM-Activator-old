@@ -28,7 +28,7 @@ if /I "%restartprompt%" EQU "Y" call "%~dp0Win7_OEM_Activator.bat"
 if /I "%restartprompt%" EQU "N" goto ACTIVATIONCOMPLETE
 
 :CHECKOEM
-type "%~dp0headertitle.txt"
+type "%~dp0lib\headertitle.txt"
 echo.
 echo.
 echo License installed, checking activation status...
@@ -39,7 +39,7 @@ for /f "tokens=3 delims=: " %%a in (
 
 if /i "%licenseStatus%"=="Licensed" (
   echo License A activation check successful >> %~dp0log.txt
-  type "%~dp0headertitle.txt"
+  type "%~dp0lib\headertitle.txt"
   echo.
   echo.
   echo.   License activated successfully!
@@ -51,13 +51,13 @@ if /i "%licenseStatus%"=="Licensed" (
 echo License A activation check failed. >> %~dp0log.txt
 if exist "%~dp0Certs\%MANU%\%EDITION% B\OEM\OEM.xrm-ms" (
 echo License variant found. >>%~dp0log.txt
-call "%~dp0installcert.bat" InstallB
+call "%~dp0lib\installcert.bat" InstallB
 	) else (
 		echo License variant not found. >> %~dp0log.txt
 		goto UNSUPPORTED
 )
 :BVARIANTTEST
-type "%~dp0headertitle.txt"
+type "%~dp0lib\headertitle.txt"
 echo.
 echo.
 echo Alternate license installed, checking activation status...
@@ -67,7 +67,7 @@ for /f "tokens=3 delims=: " %%a in (
 ) do set "licenseStatus=%%a"
 
 if /i "%licenseStatus%"=="Licensed" (
-  type "%~dp0headertitle.txt"
+  type "%~dp0lib\headertitle.txt"
   echo.
   echo.
   echo License B activation check successful. >>%~dp0log.txt
@@ -80,7 +80,7 @@ if /i "%licenseStatus%"=="Licensed" (
 	goto UNSUPPORTED
 )
 :UNSUPPORTED
-type "%~dp0headertitle.txt"
+type "%~dp0lib\headertitle.txt"
 echo.
 echo.
 echo.   License activation failed. This may be due to an
