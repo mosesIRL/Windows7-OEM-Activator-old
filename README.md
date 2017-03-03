@@ -19,6 +19,8 @@ You can also use it to install a retail or volume license key.
 
 The script supports several modes. The usage is "Win7-OEM-Activator `MODE`"
 
+If you don't specify a switch (or launch by double-clicking), the script is fully interactive.
+
 `UNATTEND` - Requires no user interaction. Be sure to check the log file if something didn't work, because the script will exit automatically.
 
 `AUTO` - Automatically installs the matching certificate and product key, but will show the results and prompt you if you want to restart.
