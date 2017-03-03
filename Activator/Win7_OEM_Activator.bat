@@ -174,7 +174,7 @@ cscript //B "%windir%\system32\slmgr.vbs" -ipk %retailkey%
 echo Retail key installation started. >> %~dp0log.txt
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 echo Retail key activation started. >> %~dp0log.txt
-cmd /c "%~dp0\lib/checkstatus.bat" RETAILCHECK
+cmd /c "%~dp0\lib\checkstatus.bat" RETAILCHECK
 net start FOGService >nul
 exit /b
 
