@@ -91,6 +91,12 @@ if "%~1"=="auto" (
 	call "%~dp0lib\installcert.bat" AUTOMATCHMANU
 	exit /b
 )
+if "%~1"=="retail" (
+	goto INSTALLRETAIL
+)
+if "%~1"=="manual" (
+	goto manualinstall
+)
 
 :SELECTOPTION
 cls
