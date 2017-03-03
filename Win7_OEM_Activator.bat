@@ -102,9 +102,9 @@ echo.
 echo.   Select license type:
 echo.
 echo.   1) Automatic Activation
-echo.   1) Manual activation (select manufacturer and Windows edition)
-echo.   2) Install retail, volume or sticker product key
-echo.   3) Cancel/Exit
+echo.   2) Manual activation (select manufacturer and Windows edition)
+echo.   3) Install retail, volume or sticker product key
+echo.   4) Cancel/Exit
 echo.
 set /P LICENSETYPE="Enter selection: "
 if /i "%LICENSETYPE:~,1%" EQU "1" call "%~dp0lib\installcert.bat" AUTOMATCHMANU
