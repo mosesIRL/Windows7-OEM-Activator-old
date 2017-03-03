@@ -45,6 +45,8 @@ setlocal & cd /d %~dp0
 if '%1'=='ELEV' (del "%vbsGetPrivileges%" 1>nul 2>nul  &  shift /1)
 if exist %~dp0log.txt del /f /q %~dp0log.txt
 
+REM **************************************************************************************************************************************
+
 :CheckWinVersion
 for /f "tokens=4-5 delims=. " %%i in ('ver') do set WINVERSION=%%i.%%j
 if NOT "%version%" == "6.1" (
@@ -58,8 +60,6 @@ if NOT "%version%" == "6.1" (
 	PAUSE > NUL
 	exit /b
 )
-
-REM **************************************************************************************************************************************
 
 :GetCurrentEdition
 cls
