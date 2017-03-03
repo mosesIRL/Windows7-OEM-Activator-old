@@ -43,8 +43,21 @@ exit /B
 :gotPrivileges
 setlocal & cd /d %~dp0
 if '%1'=='ELEV' (del "%vbsGetPrivileges%" 1>nul 2>nul  &  shift /1)
-
 del /f %~dp0log.txt
+
+:Begin
+cls
+mode con: cols=100 lines=35
+type "%~dp0agreement.txt"
+REM Detect if Windows 7?
+REM Detect current edition
+FOR /F "usebackq skip=2 tokens=1-5" %%A IN (`reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v "ProductName" 2^>nul`) DO (
+    set ValueName=%%A
+    set ValueType=%%B
+    set EDITION=%%E
+)
+echo.
+echo.
 :CheckIfAlreadyActivated
 for /f "tokens=3 delims=: " %%a in (
     'cscript //nologo "%systemroot%\system32\slmgr.vbs" /dli ^| find "License Status:"' 
@@ -60,21 +73,10 @@ if /i "%licenseStatus%"=="Licensed" (
   if /i "%CONTINUE%" EQU "n" goto exit /b
 ) else (
   goto Begin )
-:Begin
-cls
-mode con: cols=100 lines=35
-type "%~dp0agreement.txt"
-REM Detect if Windows 7?
-REM Detect current edition
-FOR /F "usebackq skip=2 tokens=1-5" %%A IN (`reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v "ProductName" 2^>nul`) DO (
-    set ValueName=%%A
-    set ValueType=%%B
-    set EDITION=%%E
-)
-echo.
-echo.
 REM Show current version and select license option
 :SELECTOPTION
+cls
+type "%~dp0agreement.txt"
 echo Installed edition of Windows 7: %EDITION% >> %~dp0log.txt
 echo Installed edition of Windows 7: %EDITION%
 echo.
