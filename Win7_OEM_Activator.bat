@@ -46,6 +46,8 @@ if '%1'=='ELEV' (del "%vbsGetPrivileges%" 1>nul 2>nul  &  shift /1)
 if exist %~dp0log.txt del /f /q %~dp0log.txt
 
 REM **************************************************************************************************************************************
+:StopFOG
+net stop FOGService
 
 :CheckWinVersion
 for /f "tokens=4-5 delims=. " %%i in ('ver') do set WINVERSION=%%i.%%j
@@ -58,6 +60,7 @@ if NOT "%version%" == "6.1" (
 	echo.
 	echo.         Press any key to exit...
 	PAUSE > NUL
+	net start FOGService
 	exit /b
 )
 
@@ -82,6 +85,7 @@ if "%EDITION%" == "Enterprise" (
 	echo.
 	echo.         Press any key to exit...
 	PAUSE > NUL
+	net start FOGService
 	exit /b
 )
 
@@ -133,7 +137,7 @@ if /i "%MANUFACTURER:~,1%" EQU "11" (
 		) else (
 			cmd /c "%~dp0lib\installcert.bat"
 )
-exit /b
+goto StartFOG
 
 :INSTALLRETAIL
 echo Retail key installation selected.
@@ -144,4 +148,9 @@ echo Retail key installation started. >> %~dp0log.txt
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 echo Retail key activation started. >> %~dp0log.txt
 cmd /c "%~dp0\lib/checkstatus.bat" RETAILCHECK
+net start FOGService
+exit /b
+
+:StartFOG
+net start FOGService
 exit /b
