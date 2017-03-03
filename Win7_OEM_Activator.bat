@@ -1,4 +1,5 @@
 REM https://github.com/mgiljum/Windows-7-Pro-Activator
+@echo off
 CLS
 :init
 setlocal DisableDelayedExpansion
@@ -44,7 +45,7 @@ setlocal & cd /d %~dp0
 if '%1'=='ELEV' (del "%vbsGetPrivileges%" 1>nul 2>nul  &  shift /1)
 if exist %~dp0log.txt del /f /q %~dp0log.txt
 
-**************************************************************************************************************************************
+REM **************************************************************************************************************************************
 
 :CHECKWINVERSION
 for /f "tokens=4-5 delims=. " %%i in ('ver') do set WINVERSION=%%i.%%j
@@ -119,9 +120,7 @@ set /P LICENSETYPE="Enter selection: "
 if /i "%LICENSETYPE:~,1%" EQU "1" call "%~dp0lib\installcert.bat" VALIDATEVENDOR
 exit
 if /i "%LICENSETYPE:~,1%" EQU "2" goto manualinstall
-exit
 if /i "%LICENSETYPE:~,1%" EQU "3" goto installretail
-exit
 if /i "%LICENSETYPE:~,1%" EQU "4" exit /b
 goto MANUALINSTALL
 
