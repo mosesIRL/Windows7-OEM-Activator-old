@@ -24,6 +24,7 @@ FOR %%G IN ("Acer"
 
 :INVALIDVENDOR
 type "%~dp0lib\agreement.txt"
+echo Vendor reported as "%vendor%". This did not match a supported vendor. Use manual mode if this was reported in error. >>%~dp0log.txt
 echo.
 echo.   Your PC reported that it's manufacturer is "%VENDOR%".
 echo.  
