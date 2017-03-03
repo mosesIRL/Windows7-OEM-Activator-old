@@ -1,0 +1,23 @@
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+ __        _____ _   _     _____     ____  ____   ___     
+ \ \      / /_ _| \ | |   |___  |   |  _ \|  _ \ / _ \   
+  \ \ /\ / / | ||  \| |      / /    | |_) | |_) | | | |  
+   \ V  V /  | || |\  |     / /     |  __/|  _ <| |_| |  
+    \_/\_/  |___|_| \_|    /_/      |_|   |_| \_\\___/   
+     _    ____ _____ _____     ___  _____ ___  ____     ____   ____ ____  ___ ____ _____  
+    / \  / ___|_   _|_ _\ \   / / \|_   _/ _ \|  _ \   / ___| / ___|  _ \|_ _|  _ \_   _| 
+   / _ \| |     | |  | | \ \ / / _ \ | || | | | |_) |  \___ \| |   | |_) || || |_) || |   
+  / ___ \ |___  | |  | |  \ V / ___ \| || |_| |  _ <    ___) | |___|  _ < | ||  __/ | |   
+ /_/   \_\____| |_| |___|  \_/_/   \_\_| \___/|_| \_\  |____/ \____|_| \_\___|_|    |_|   
+
+
+  The use of this script assumes you have a device with valid 
+  installation or downgrade rights to Windows 7 Professional, 
+  or a valid Windows 7 retail product key. The use of this script  may be 
+  a violation of the Microsoft End User License Agreement or specific 
+  manufacturer agreements. The author assumes no responsibility for 
+  any misuse or any liability for any damages that may result from 
+  the use of this script.
+
+
+///////////////////////////////////////////////////////////////////
