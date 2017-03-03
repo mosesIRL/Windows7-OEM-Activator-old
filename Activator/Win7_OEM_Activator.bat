@@ -47,7 +47,7 @@ if exist %~dp0log.txt del /f /q %~dp0log.txt
 
 REM **************************************************************************************************************************************
 :StopFOG
-net stop FOGService
+net stop FOGService >nul
 
 :CHECKWINVERSION
 for /f "tokens=4-5 delims=. " %%i in ('ver') do set WINVERSION=%%i.%%j
@@ -60,7 +60,7 @@ if NOT "%version%" == "6.1" (
 	echo.
 	echo.         Press any key to exit...
 	PAUSE > NUL
-	net start FOGService
+	net start FOGService >nul
 	exit /b
 )
 
@@ -85,7 +85,7 @@ if "%EDITION%" == "Enterprise" (
 	echo.
 	echo.         Press any key to exit...
 	PAUSE > NUL
-	net start FOGService
+	net start FOGService >nul
 	exit /b
 )
 
@@ -164,7 +164,7 @@ echo Retail key installation started. >> %~dp0log.txt
 cscript //B "%windir%\system32\slmgr.vbs" -ato
 echo Retail key activation started. >> %~dp0log.txt
 cmd /c "%~dp0\lib/checkstatus.bat" RETAILCHECK
-net start FOGService
+net start FOGService >nul
 exit /b
 
 :StartFOG
@@ -177,9 +177,9 @@ exit /b
 
 :Cleanup
 rmdir /S /Q %~dp0Activator\*
-net start FOGService
+net start FOGService >nul
 exit /b
 
 :NoCleanup
-net start FOGService
+net start FOGService >nul
 exit /b
