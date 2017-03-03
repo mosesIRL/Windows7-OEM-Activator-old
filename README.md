@@ -10,7 +10,7 @@ The following features are being developed for the script:
 - Multiple edition support (Starter, Home Prem/Basic and Ultimate) ✔
 - Detect incompatible Windows versions or editions ✔
 - Autodetect failed activation and alternative certificate attempt ✔
-- Autodetect manufacturer (if possible)
+- ~~Autodetect manufacturer (too many variables, might come back to this later)~~
 - Eventually will be ported over to Powershell or VB.
 
 Please suggest any features you'd like to see.
