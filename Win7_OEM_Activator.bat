@@ -104,9 +104,7 @@ echo.   3) Cancel/Exit
 echo.
 set /P LICENSETYPE="Enter selection: "
 if /i "%LICENSETYPE:~,1%" EQU "1" goto installoem
-exit
 if /i "%LICENSETYPE:~,1%" EQU "2" goto installretail
-exit
 if /i "%LICENSETYPE:~,1%" EQU "3" exit /b
 goto SELECTOPTION
 
