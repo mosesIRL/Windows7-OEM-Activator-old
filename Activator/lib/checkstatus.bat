@@ -13,7 +13,7 @@ for /f "tokens=3 delims=: " %%a in (
 
 if /i "%licenseStatus%"=="Licensed" (
 	cls
-	echo Retailed key activation successful. >> %~dp0log.txt
+	echo Retailed key activation successful. >> %~dp0..\log.txt
 	echo License activated successfully!
 	goto ACTIVATIONCOMPLETE
 		) else (
@@ -21,7 +21,7 @@ if /i "%licenseStatus%"=="Licensed" (
 )
   
 :FAILEDRESTARTPROMPT
-echo Retail license key activation failed. >> %~dp0log.txt
+echo Retail license key activation failed. >> %~dp0..\log.txt
 echo License activation failed. This may be due to a typo,
 echo or the product key you entered doesn't match the
 echo installed version.
@@ -41,7 +41,7 @@ for /f "tokens=3 delims=: " %%a in (
 ) do set "licenseStatus=%%a"
 
 if /i "%licenseStatus%"=="Licensed" (
-  echo License A activation check successful >> %~dp0log.txt
+  echo License A activation check successful >> %~dp0..\log.txt
   cls
   type %~dp0headertitle.txt
   echo.
@@ -52,12 +52,12 @@ if /i "%licenseStatus%"=="Licensed" (
   goto TRYBVARIANT )
   
 :TRYBVARIANT
-echo License A activation check failed. >> %~dp0log.txt
+echo License A activation check failed. >> %~dp0..\log.txt
 if exist "%~dp0Certs\%MANU%\%EDITION% B\OEM\OEM.xrm-ms" (
-echo License variant found. >>%~dp0log.txt
+echo License variant found. >>%~dp0..\log.txt
 call "%~dp0lib\installcert.bat" InstallB
 	) else (
-		echo License variant not found. >> %~dp0log.txt
+		echo License variant not found. >> %~dp0..\log.txt
 		goto UNSUPPORTED
 )
 :BVARIANTTEST
@@ -74,13 +74,13 @@ if /i "%licenseStatus%"=="Licensed" (
   type %~dp0headertitle.txt
   echo.
   echo.
-  echo License B activation check successful. >>%~dp0log.txt
+  echo License B activation check successful. >>%~dp0..\log.txt
   echo License activated successfully!
   echo.
   echo Restart your computer to finalize the changes.
   goto ACTIVATIONCOMPLETE 
   ) else (
-	echo License B activation check failed. Product not supported. >> %~dp0log.txt
+	echo License B activation check failed. Product not supported. >> %~dp0..\log.txt
 	goto UNSUPPORTED
 )
 :UNSUPPORTED

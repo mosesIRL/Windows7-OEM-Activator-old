@@ -1,1 +1,1 @@
-   Installed edition of Windows 7: Pro 
+Version of Windows is 10.0. Supported version is 6.1. Cannot continue. 
