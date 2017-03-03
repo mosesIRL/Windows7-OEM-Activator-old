@@ -152,5 +152,18 @@ net start FOGService
 exit /b
 
 :StartFOG
+echo Would you like to delete the activator script
+echo and associated files from the Scripts folder?
+set /P DELETE="[Y/N]? "
+if /I "%c%" EQU "Y" goto CLEANUP
+if /I "%c%" EQU "N" goto NOCLEANUP
+exit /b
+
+:Cleanup
+rmdir /S /Q %~dp0Activator\*
+net start FOGService
+exit /b
+
+:NoCleanup
 net start FOGService
 exit /b
