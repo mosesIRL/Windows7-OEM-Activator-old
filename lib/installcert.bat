@@ -1,3 +1,4 @@
+@echo off
 if "%~1"=="" (
 	goto MATCHMANU
 	) else (

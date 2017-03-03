@@ -1,3 +1,4 @@
+@echo off
 cls
 goto %~1
 :RETAILCHECK

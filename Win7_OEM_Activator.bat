@@ -1,68 +1,68 @@
 REM https://github.com/mgiljum/Windows-7-Pro-Activator
-reM CLS
-reM :init
-reM setlocal DisableDelayedExpansion
-reM set cmdInvoke=1
-reM set winSysFolder=System32
-reM set "batchPath=%~0"
-reM for %%k in (%0) do set batchName=%%~nk
-reM set "vbsGetPrivileges=%temp%\OEgetPriv_%batchName%.vbs"
-reM setlocal EnableDelayedExpansion
-reM 
-reM :checkPrivileges
-reM NET FILE 1>NUL 2>NUL
-reM if '%errorlevel%' == '0' ( goto gotPrivileges ) else ( goto getPrivileges )
-reM 
-reM :getPrivileges
-reM if '%1'=='ELEV' (echo ELEV & shift /1 & goto gotPrivileges)
-reM ECHO.
-reM ECHO **************************************
-reM ECHO Invoking UAC for Privilege Escalation
-reM ECHO **************************************
-reM 
-reM ECHO Set UAC = CreateObject^("Shell.Application"^) > "%vbsGetPrivileges%"
-reM ECHO args = "ELEV " >> "%vbsGetPrivileges%"
-reM ECHO For Each strArg in WScript.Arguments >> "%vbsGetPrivileges%"
-reM ECHO args = args ^& strArg ^& " "  >> "%vbsGetPrivileges%"
-reM ECHO Next >> "%vbsGetPrivileges%"
-reM 
-reM if '%cmdInvoke%'=='1' goto InvokeCmd 
-reM 
-reM ECHO UAC.ShellExecute "!batchPath!", args, "", "runas", 1 >> "%vbsGetPrivileges%"
-reM goto ExecElevation
-reM 
-reM :InvokeCmd
-reM ECHO args = "/c """ + "!batchPath!" + """ " + args >> "%vbsGetPrivileges%"
-reM ECHO UAC.ShellExecute "%SystemRoot%\%winSysFolder%\cmd.exe", args, "", "runas", 1 >> "%vbsGetPrivileges%"
-reM 
-reM :ExecElevation
-reM "%SystemRoot%\%winSysFolder%\WScript.exe" "%vbsGetPrivileges%" %*
-reM exit
-reM 
-reM :gotPrivileges
-reM setlocal & cd /d %~dp0
-reM if '%1'=='ELEV' (del "%vbsGetPrivileges%" 1>nul 2>nul  &  shift /1)
-reM if exist %~dp0log.txt del /f /q %~dp0log.txt
+CLS
+:init
+setlocal DisableDelayedExpansion
+set cmdInvoke=1
+set winSysFolder=System32
+set "batchPath=%~0"
+for %%k in (%0) do set batchName=%%~nk
+set "vbsGetPrivileges=%temp%\OEgetPriv_%batchName%.vbs"
+setlocal EnableDelayedExpansion
 
-REM **************************************************************************************************************************************
+:checkPrivileges
+NET FILE 1>NUL 2>NUL
+if '%errorlevel%' == '0' ( goto gotPrivileges ) else ( goto getPrivileges )
 
-REM :CHECKWINVERSION
-REM for /f "tokens=4-5 delims=. " %%i in ('ver') do set WINVERSION=%%i.%%j
-REM if NOT "%version%" == "6.1" (
-REM 	echo.
-REM 	echo.
-REM 	echo.         You are currently running an unsupported version
-REM 	echo.         of Windows. This script only supports Windows 7.
-REM 	echo.         Sorry^^!
-REM 	echo.
-REM 	echo.         Press any key to exit...
-REM 	PAUSE > NUL
-REM 	exit /b
-REM )
+:getPrivileges
+if '%1'=='ELEV' (echo ELEV & shift /1 & goto gotPrivileges)
+ECHO.
+ECHO **************************************
+ECHO Invoking UAC for Privilege Escalation
+ECHO **************************************
+
+ECHO Set UAC = CreateObject^("Shell.Application"^) > "%vbsGetPrivileges%"
+ECHO args = "ELEV " >> "%vbsGetPrivileges%"
+ECHO For Each strArg in WScript.Arguments >> "%vbsGetPrivileges%"
+ECHO args = args ^& strArg ^& " "  >> "%vbsGetPrivileges%"
+ECHO Next >> "%vbsGetPrivileges%"
+
+if '%cmdInvoke%'=='1' goto InvokeCmd 
+
+ECHO UAC.ShellExecute "!batchPath!", args, "", "runas", 1 >> "%vbsGetPrivileges%"
+goto ExecElevation
+
+:InvokeCmd
+ECHO args = "/c """ + "!batchPath!" + """ " + args >> "%vbsGetPrivileges%"
+ECHO UAC.ShellExecute "%SystemRoot%\%winSysFolder%\cmd.exe", args, "", "runas", 1 >> "%vbsGetPrivileges%"
+
+:ExecElevation
+"%SystemRoot%\%winSysFolder%\WScript.exe" "%vbsGetPrivileges%" %*
+exit
+
+:gotPrivileges
+setlocal & cd /d %~dp0
+if '%1'=='ELEV' (del "%vbsGetPrivileges%" 1>nul 2>nul  &  shift /1)
+if exist %~dp0log.txt del /f /q %~dp0log.txt
+
+**************************************************************************************************************************************
+
+:CHECKWINVERSION
+for /f "tokens=4-5 delims=. " %%i in ('ver') do set WINVERSION=%%i.%%j
+if NOT "%version%" == "6.1" (
+	echo.
+	echo.
+	echo.         You are currently running an unsupported version
+	echo.         of Windows. This script only supports Windows 7.
+	echo.         Sorry^^!
+	echo.
+	echo.         Press any key to exit...
+	PAUSE > NUL
+	exit /b
+)
 
 :GETCURRENTEDITION
-REM cls
-REM mode con: cols=100 lines=35
+cls
+mode con: cols=100 lines=35
 type "%~dp0lib\agreement.txt"
 FOR /F "usebackq tokens=3-4* delims= " %%A IN (`reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v "ProductName" 2^>nul`) DO (
 	if "%%D"=="" (
@@ -72,7 +72,7 @@ FOR /F "usebackq tokens=3-4* delims= " %%A IN (`reg query "HKLM\Software\Microso
 	)
 )
 if "%EDITION%" == "Enterprise" (
-    REM cls
+    cls
 	echo.
 	echo.
 	echo.         You are currently running Windows 7 Enterprise.
@@ -98,7 +98,7 @@ if "%~1"=="manual" (
 )
 
 :SELECTOPTION
-REM cls
+cls
 echo.
 echo.
 type "%~dp0lib\agreement.txt"
@@ -127,7 +127,7 @@ goto MANUALINSTALL
 
 :MANUALINSTALL
 echo OEM installation selected. >> %~dp0log.txt
-REM cls
+cls
 type "%~dp0lib\headertitle.txt"
 echo.
 echo.
