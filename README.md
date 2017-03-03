@@ -1,17 +1,15 @@
-# Windows-7-Activator (dev branch - not currently working)
+# Windows-7-Activator
 This is a batch script for activating Windows 7 using an OEM certificate. For computers that come with a Windows 8/10 sticker but have downgrade rights to Windows 7 Pro. This allows you activate it after doing a clean install. It's useful in conjunction with SetupComplete.cmd if you're setting up a Windows 7 deployment image.
 
 You can also use it to install a retail or volume license key. 
 
 # Roadmap
 
-The following features are being developed for the script:
+The following features were added as of version 1.0.0:
 
 - Multiple edition support (Starter, Home Prem/Basic and Ultimate) ✔
 - Detect incompatible Windows versions or editions ✔
 - Autodetect failed activation and alternative certificate attempt ✔
-- ~~Autodetect manufacturer (too many variables, might come back to this later)~~
-- Eventually will be ported over to VB w/ a GUI.
 
 Please suggest any features you'd like to see.
 
