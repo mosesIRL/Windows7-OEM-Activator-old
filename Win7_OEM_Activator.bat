@@ -87,6 +87,10 @@ if "%EDITION%" == "Enterprise" (
 
 :GETMANUFACTURER
 for /f "usebackq tokens=2 delims==" %%A IN (`wmic csproduct get vendor /value`) DO SET VENDOR=%%A
+if "%~1"=="auto" (
+	call "%~dp0lib\installcert.bat" AUTOMATCHMANU
+	exit /b
+)
 
 :SELECTOPTION
 cls
