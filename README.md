@@ -3,6 +3,8 @@ This is a batch script for activating Windows 7 using an OEM certificate. For co
 
 You can also use it to install a retail or volume license key. 
 
+This branch is in development and contains many bugs. If you want a working version, check the master or FOG-Edition branches.
+
 # Roadmap
 
 The following features are planned for version 1.0.1:
