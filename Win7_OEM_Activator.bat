@@ -88,7 +88,7 @@ if "%EDITION%" == "Enterprise" (
 :GETMANUFACTURER
 for /f "usebackq tokens=2 delims==" %%A IN (`wmic csproduct get vendor /value`) DO SET VENDOR=%%A
 if "%~1"=="auto" (
-	call "%~dp0lib\installcert.bat" AUTOMATCHMANU
+	call "%~dp0lib\installcert.bat" VALIDATEVENDOR
 	exit /b
 )
 if "%~1"=="retail" (
@@ -117,7 +117,7 @@ echo.   3) Install retail, volume or sticker product key
 echo.   4) Cancel/Exit
 echo.
 set /P LICENSETYPE="Enter selection: "
-if /i "%LICENSETYPE:~,1%" EQU "1" call "%~dp0lib\installcert.bat" AUTOMATCHMANU
+if /i "%LICENSETYPE:~,1%" EQU "1" call "%~dp0lib\installcert.bat" VALIDATEVENDOR
 if /i "%LICENSETYPE:~,1%" EQU "2" goto manualinstall
 if /i "%LICENSETYPE:~,1%" EQU "3" goto installretail
 if /i "%LICENSETYPE:~,1%" EQU "4" exit /b

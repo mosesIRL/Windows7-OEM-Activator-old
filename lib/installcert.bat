@@ -4,6 +4,30 @@ if "%~1"=="" (
 	) else (
 		goto %~1
 )
+:VALIDATEVENDOR
+FOR %%G IN ("Acer"
+            "Gateway"
+            "Packard"
+            "Alienware"
+            "ASUS"
+            "Dell Inc."
+            "Fujitsu"
+            "HP"
+            "Compaq"
+            "Lenovo"
+            "IBM"
+            "Samsung"
+            "Sony"
+            "Toshiba") DO (
+            IF /I "%vendor%"=="%%~G" GOTO AUTOMATCHMANU
+)
+
+:INVALIDVENDOR
+echo.   Your PC reported that it's manufacturer is %VENDOR%.
+echo.   This was not recognized by the activator script.
+echo.   If you believe this is an error, restart the script
+echo.   and use the manual mode to select the vendor.
+
 :AUTOMATCHMANU
 if /i %VENDOR% EQU "Acer" DO SET MANU=AcerGatewayPackard
 if /i %VENDOR% EQU "Gateway" DO SET MANU=AcerGatewayPackard
