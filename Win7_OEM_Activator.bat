@@ -65,12 +65,12 @@ if NOT "%version%" == "6.1" (
 cls
 mode con: cols=100 lines=35
 type "%~dp0lib\agreement.txt"
-REM Detect if Windows 7?
-REM Detect current edition
-FOR /F "usebackq skip=2 tokens=1-5" %%A IN (`reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v "ProductName" 2^>nul`) DO (
-    set ValueName=%%A
-    set ValueType=%%B
-    set EDITION=%%E
+FOR /F "usebackq tokens=3-4* delims= " %%A IN (`reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion" /v "ProductName" 2^>nul`) DO (
+	if "%%D"=="" (
+    set EDITION=%%C %%D
+		) else (
+			set EDITION=%%C
+	)
 )
 if "%EDITION%" == "Enterprise" (
     cls
