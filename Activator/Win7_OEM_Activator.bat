@@ -95,6 +95,14 @@ if "%EDITION%" == "Enterprise" (
 :GETMANUFACTURER
 for /f "usebackq tokens=2 delims==" %%A IN (`wmic csproduct get vendor /value`) DO SET VENDOR=%%A
 if "%~1"=="auto" (
+	echo Automatic mode selected.>>%~dp0log.txt
+	set AUTOMODE=="true"
+	call "%~dp0lib\installcert.bat" VALIDATEVENDOR
+	exit /b
+)
+if "%~1"=="unattend" (
+	echo Unattended mode selected.>>%~dp0log.txt
+	set UNATTENDED=="true"
 	call "%~dp0lib\installcert.bat" VALIDATEVENDOR
 	exit /b
 )
