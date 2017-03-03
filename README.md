@@ -1,4 +1,4 @@
-# Windows-7-Activator (FOG Project Edition)
+# Windows-7-OEM-Activator (FOG Project Edition)
 This is a batch script for activating Windows 7 using an OEM certificate. For computers that come with a Windows 8/10 sticker but have downgrade rights to Windows 7 Pro, this allows you activate it after doing a clean install. 
 
 You can also use it to install a retail or volume license key. 
