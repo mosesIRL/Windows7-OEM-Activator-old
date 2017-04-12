@@ -13,7 +13,8 @@ You can also use it to install a retail or volume license key.
 ## Usage:
 
 1. Download the zip and extract to a folder.
-2. Right click "Win7-OEM-Activator.bat" and run as administrator
+2. Right click "Win7-OEM-Activator.bat" and run as administrator<br>
+   or use a command line switch (see below)
 
 ## Switches
 
