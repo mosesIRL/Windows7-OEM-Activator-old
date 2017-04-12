@@ -13,7 +13,7 @@ You can also use it to install a retail or volume license key.
 ## Usage:
 
 1. Download the zip and extract to a folder.
-2. Double click Win7-OEM-Activator.bat
+2. Right click "Win7-OEM-Activator.bat" and run as administrator
 
 ## Switches
 
@@ -26,7 +26,7 @@ The script supports several modes. The usage is "Win7-OEM-Activator `MODE`"
 `RETAIL` - Skip straight to retail/VL key activation (if you aren't using it for OEM activation)
 
 
-*If you don't specify a switch (or launch by double-clicking), the script is fully interactive.*
+*If you don't specify a switch (or launch by right-click run as admin), the script is fully interactive.*
 
 ### Supported Windows 7 Editions:
 - Starter
