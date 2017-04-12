@@ -28,14 +28,14 @@ The script supports several modes. The usage is "Win7-OEM-Activator `MODE`"
 
 *If you don't specify a switch (or launch by double-clicking), the script is fully interactive.*
 
-##Supported Windows 7 Editions:
+### Supported Windows 7 Editions:
 - Starter
 - Home Basic
 - Home Premium
 - Professional
 - Ultimate
 
-##Supported Manufacturers:
+### Supported Manufacturers:
 - Acer/Gateway/Packard
 - Alienware
 - Asus
