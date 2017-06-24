@@ -49,6 +49,14 @@ The script supports several modes. The usage is "Win7-OEM-Activator `MODE`"
 
 ## Legal:
 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
 By using this software you agree that you are using it at your own risk. The use of this software may be in violation of specific manufacturer licensing agreements and/or terms of service. It is the user's responsibility to read their all applicable terms of service and license agreements, and/or contact their computer and software manufacturers before using this software. The author of this software assumes no responsibility for any damages resulting from the use of this software where the user has violated any agreement between the themselves and any computer of software manufacturer.
 
 This software script is intended for consumers who have a device with valid installation or downgrade rights to Windows 7, or a valid Windows 7 retail product key or volume license key. The script does not make use of pirated or otherwise illegaly-obtained Microsoft product keys. The use of any pirated or illegaly-obtained product keys for any software is strongly discouraged by the author.
