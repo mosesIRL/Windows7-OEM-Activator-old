@@ -47,8 +47,10 @@ The script supports several modes. The usage is "Win7-OEM-Activator `MODE`"
 - Sony
 - Toshiba
 
-## Read This Notice:
+## Legal:
 
-The use of this script assumes you have a device with valid installation or downgrade rights to Windows 7, or a valid Windows 7 retail or volume product key. The use of this script may be a violation of specific manufacturer agreements, so it is best to check with your manufacturer before using this script. This script does not make use of pirated Microsoft product keys. The use of any pirated product keys is discouraged by the author. The author assumes no responsibility for any misuse or any liability for any damages (including voided warranties) that may result from the use of this script. 
+By using this software you agree that you are using it at your own risk. The use of this software may be in violation of specific manufacturer licensing agreements and/or terms of service. It is the user's responsibility to read their all applicable terms of service and license agreements, and/or contact their computer and software manufacturers before using this software. The author of this software assumes no responsibility for any damages resulting from the use of this software where the user has violated any agreement between the themselves and any computer of software manufacturer.
 
-The OEM digital certificates included are property of their respective owners. They were obtained from the Dell support forums here: https://web.archive.org/web/20170412155729/http://en.community.dell.com/support-forums/software-os/m/microsoft_os/20443565
+This software script is intended for consumers who have a device with valid installation or downgrade rights to Windows 7, or a valid Windows 7 retail product key or retail volume key. The script does not make use of pirated or otherwise illegaly-obtained Microsoft product keys. The use of any pirated or illegaly-obtained product keys for any software is strongly discouraged, and the author assumes no liability for users of this software who make use of pirated software keys.
+
+The OEM digital certificates included with this software are property of their respective owners. They were obtained from the Dell support forums here: https://web.archive.org/web/20170412155729/http://en.community.dell.com/support-forums/software-os/m/microsoft_os/20443565
