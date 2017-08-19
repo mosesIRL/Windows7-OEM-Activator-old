@@ -3,7 +3,7 @@ This is a batch script for activating Windows 7 using an OEM certificate. For co
 
 You can also use it to install a retail or volume license key programmtically, using it in a script if desired.
 
-One common use case could be by incorporating it into `setupcomplete.cmd` on a sysprep'd Windows 7 image.
+One common use case could be by incorporating it into `setupcomplete.cmd` on a sysprep'd Windows 7 image. Open the included `setupcomplete.cmd` to see options for unattended and auto modes (more on that below).
 
 ## Main Features
 
